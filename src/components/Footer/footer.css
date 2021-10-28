@@ -1,0 +1,32 @@
+.footer{
+display: flex;
+justify-content: center;
+text-align: center;
+align-items: center;
+flex-direction: column;
+height: 15vh;
+width: 100vw;
+border : solid rgba(0, 255, 115, 0.555);
+}
+.logo_sociaux{
+  height: 50%;
+  width: 50%;
+}
+.div_ul{
+  width:50%;
+  height: 50%;
+}
+.social_list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding-inline-start: 0px;
+  border : solid rgba(238, 255, 0, 0.555);
+  height: 50px;
+}
+.social_list_li{
+margin-left: 10px;
+margin-right: 10px;
+
+}

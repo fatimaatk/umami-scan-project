@@ -1,9 +1,16 @@
-import RemoveMe from './components/RemoveMe';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import './app.css';
+import ProductList from './components/ProductList/ProductList';
 
 function App() {
   return (
     <div className="App">
-      <RemoveMe />
+      <Header />
+      <main className="main">
+        <ProductList />
+      </main>
+      <Footer />
     </div>
   );
 }

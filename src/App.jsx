@@ -15,6 +15,7 @@ function App() {
         <main className="main">
           <Switch>
             <Route exact path="/">
+              <Search />
               <ProductList />
             </Route>
             <Route path="/my-umami">
@@ -26,11 +27,6 @@ function App() {
           </Switch>
         </main>
       </Router>
-      <Header />
-      <main className="main">
-        <Search />
-        <ProductList />
-      </main>
       <Footer />
     </div>
   );

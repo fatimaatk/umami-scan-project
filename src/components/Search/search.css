@@ -1,0 +1,24 @@
+.search {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f6faed;
+  margin-top: 3%;
+}
+
+.searchtext {
+  padding-top: 50%;
+  background-color: #f6faed;
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  .search {
+    width: 100%;
+    background-color: #f6faed;
+    justify-content: center;
+  }
+
+  .searchtext {
+    padding-top: 10%;
+  }
+}

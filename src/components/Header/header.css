@@ -1,14 +1,106 @@
-.header{
+header {
+  padding: 2rem;
+}
+
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left : 5px;
-  padding-right : 5px;
-  border : solid red;
-  height: 15vh;
+  flex-wrap: wrap;
 }
-.logo{
-  height: 80%;
-  width: 50%;
-  border : solid black;
+
+nav {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+nav ul li {
+  margin: 0 auto 0.5rem auto;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.hamburger-opened nav {
+  display: block;
+  flex-basis: 100%;
+}
+
+.hamburger {
+  cursor: pointer;
+  height: 15px;
+  margin: 0 20px 0 auto;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  width: 22px;
+}
+
+.hamburger-span {
+  background: #000;
+  border-radius: 9px;
+  cursor: pointer;
+  display: block;
+  height: 2px;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  width: 100%;
+  transition: 0.3s;
+}
+
+.hamburger-span:nth-child(2),
+.hamburger-span:nth-child(3) {
+  top: 8px;
+}
+
+.hamburger-span:nth-child(4) {
+  top: 16px;
+}
+
+.hamburger-opened .hamburger-span:first-child,
+.hamburger-opened .hamburger-span:last-child {
+  opacity: 0;
+}
+
+.hamburger-opened .hamburger-span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.hamburger-opened .hamburger-span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media screen and (min-width: 700px) {
+  .header-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  nav {
+    display: block;
+  }
+
+  .hamburger-opened nav {
+    flex-basis: auto;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
 }

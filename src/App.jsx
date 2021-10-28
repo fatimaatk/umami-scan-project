@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Search from './components/Search/Search';
 import './app.css';
 import ProductList from './components/ProductList/ProductList';
 import MyUmami from './components/MyUmami/MyUmami';
@@ -25,6 +26,11 @@ function App() {
           </Switch>
         </main>
       </Router>
+      <Header />
+      <main className="main">
+        <Search />
+        <ProductList />
+      </main>
       <Footer />
     </div>
   );

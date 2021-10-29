@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -13,10 +13,10 @@
   },
   "plugins": ["react"],
   "rules": {
-    "prettier/prettier": ["error",{"endOfLine":"auto"}], 
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 1
   }
 }

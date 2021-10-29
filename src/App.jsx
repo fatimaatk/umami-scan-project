@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Search from './components/Search/Search';
 import './app.css';
-import ProductList from './components/ProductList/ProductList';
+import Product from './components/Product/Product';
 import MyUmami from './components/MyUmami/MyUmami';
 import Contact from './components/Contact/Contact';
 
@@ -15,7 +15,8 @@ function App() {
         <main className="main">
           <Switch>
             <Route exact path="/">
-              <ProductList />
+              <Search />
+              <Product />
             </Route>
             <Route path="/my-umami">
               <MyUmami />
@@ -26,11 +27,6 @@ function App() {
           </Switch>
         </main>
       </Router>
-      <Header />
-      <main className="main">
-        <Search />
-        <ProductList />
-      </main>
       <Footer />
     </div>
   );

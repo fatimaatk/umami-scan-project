@@ -1,13 +1,19 @@
-import './productList.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const ProductList = () => {
+function ProductList({ title, image }) {
   return (
-    <div className="productList">
-      <div className="placement_product">
-        <p>Your Umami is empty :(</p>
-      </div>
+    <div className="ProductList">
+      <h1>{title}</h1>
+      <ul>
+        <img src={image} />
+      </ul>
     </div>
   );
+}
+ProductList.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default ProductList;

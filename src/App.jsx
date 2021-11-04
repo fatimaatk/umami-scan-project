@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Search from './components/Search/Search';
 import './app.css';
 import Product from './components/Product/Product';
+import ProductList from './components/ProductList/ProductList';
 import MyUmami from './components/MyUmami/MyUmami';
 import Contact from './components/Contact/Contact';
 
@@ -16,6 +17,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Search />
+              <ProductList />
+            </Route>
+            <Route exact path="/product/:id">
               <Product />
             </Route>
             <Route path="/my-umami">

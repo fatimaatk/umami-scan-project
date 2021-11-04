@@ -1,46 +1,56 @@
 import './product.css';
-import React, { useState } from 'react';
-import ProductList from '../ProductList/ProductList';
-
-const data = '3428273980046';
-// eslint-disable-next-line no-unused-vars
-
-const userAction = async (setImage, setProduct) => {
-  // je vais récuperer un objet via Api
-  fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
-    // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
-    .then((res) => res.json())
-    // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
-    .then((datas) => {
-      // prend dans datas uniquement l'image et assigne le à setImage
-      setImage([datas.product.image_front_small_url]);
-      // prend dans datas uniquement la marque et assigne le à setProduct
-      setProduct([datas.product.brands]);
-    });
-};
+import { useEffect , useState} from 'react';
+import { useParams } from "react-router-dom";
 
 const Product = () => {
+  const params = useParams();
   const [product, setProduct] = useState();
   const [image, setImage] = useState();
+  const [ingredients, setIngredients] = useState();
+  const [additives, setAdditives] = useState();
+  //const [fat, setFat] = useState();
+  //const [salt, setSalt] = useState();
+  //const [saturatedFat, setSaturatedFat] = useState();
+  //const [sugars, setSugars] = useState();
+  const [environnement, setEnvironnement] = useState();
+  const [nutriscoreGrade, setNutriscoreGrade] = useState();
+  
+  useEffect(() => {
+    fetch(`https://world.openfoodfacts.org/api/v0/product/${params.id}.json`)
+    // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
+      .then((res) => res.json())
+    // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
+      .then(datas => {
+        setImage([datas.product.image_front_small_url]);
+        setProduct([datas.product.brands]);
+        setIngredients([datas.product.ingredients_text]);
+        setAdditives([datas.product.additives_n]);
+        //setFat([datas.products.nutrient_levels.fat]);
+        //setSalt([datas.product.nutrient_levels.salt]);
+        // setSaturatedFat([datas.product.nutrient_levels.saturated-fat]);
+        //setSugars([datas.product.nutrient_levels.sugars]);
+        setEnvironnement([datas.product.ecoscore_data.agribalyse.score]);
+        setNutriscoreGrade([datas.product.grades]);
+      })}, []);
 
-  console.log(product, image);
-  // si je n'ai pas de produit alors affiche moi "..."
-  // if (product.length === 0) {
-  // return "Your empty component"
-  // }
-  // sinon retourne :
+
+
   return (
-    <div className="Products">
-      <ProductList title={product} image={image} />
-      <button
-        label="text"
-        type="button"
-        onClick={() => userAction(setImage, setProduct)}
-      >
-        Add
-      </button>
+    <div className="product">
+      <div className="productIngredient">
+        <h1>{product ? product :"null"}</h1>
+        <img src={image? image :"null"} alt="product" />
+        <p>{ingredients? ingredients :"null"} </p>
+        <p>Valeurs nutritionnelles</p>
+        <ul>
+          <li>Additif : {additives? additives :"null"}</li>
+   
+          <li>Indice environnement : {environnement? environnement :"null"}</li>
+          <li>Nutriscore grade : {nutriscoreGrade? nutriscoreGrade :"0"}</li>
+        </ul>
+      </div>
     </div>
   );
 };
-export default Product;
 
+export default Product;

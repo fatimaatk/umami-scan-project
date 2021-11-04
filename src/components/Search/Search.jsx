@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './search.css';
 import './Button/button.css';
 import { Link } from 'react-router-dom';
-import BarcodeScannerComponent from 'react-qr-barcode-scanner'
+import BarcodeScannerComponent from 'react-qr-barcode-scanner';
 //import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
 
 const Search = () => {

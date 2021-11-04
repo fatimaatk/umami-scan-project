@@ -9,11 +9,22 @@ import BarcodeScannerComponent from 'react-qr-barcode-scanner'
 const Search = () => {
   const [product, setProduct] = useState();
   const [image, setImage] = useState();
-
+  const [scan, setScan] = useState(false);
   const [data, setData] = useState('');
+  const [ingredients, setIngredients] = useState();
+  const [additives, setAdditives] = useState();
+  const [fat, setFat] = useState();
+  const [salt, setSalt] = useState();
+  const [saturatedFat, setSaturatedFat] = useState();
+  const [sugars, setSugars] = useState();
+  const [environnement, setEnvironnement] = useState();
+  const [nutriscoreGrade, setNutriscoreGrade] = useState();
 
   const handleSearchValue = (e) => {
+    //setData([...data, e.result.text]);
+    window.navigator.vibrate(100);
     setData(e.target.value);
+
   };
 
   //3428273980046
@@ -28,20 +39,39 @@ const Search = () => {
         setImage([datas.product.image_front_small_url]);
         // prend dans datas uniquement la marque et assigne le à setProduct
         setProduct([datas.product.brands]);
+        setIngredients([datas.product.ingredients_text]);
+        setAdditives([datas.product.additives_n]);
+        setFat([datas.product.nutrient_levels.fat]);
+        setSalt([datas.product.nutrient_levels.salt]);
+        setSaturatedFat([datas.product.nutrient_levels.saturated-fat]);
+        setSugars([datas.product.nutrient_levels.sugars]);
+        setEnvironnement([datas.product.ecoscore_data.agribalyse.score]);
+        setNutriscoreGrade([datas.product.nutriscore_grade]);
       });
   };
 
   return (
     <div className="searchtext">
       <p>What do you want to add to your Umami ?</p>
+      <button onClick={() => setScan(true)}>SCAN</button> <br />
+      <button onClick={() => setScan(false)}>Off</button>
+      {scan && (
 
-      <BarcodeScannerComponent
-        width={500}
-        height={200}
-        onUpdate={(err, result) => {
-          if (result) setData(result.text);
-        }}
-      />
+        <BarcodeScannerComponent
+          width={400}
+          height={200}
+          onUpdate={(err, result) => {
+            if (result) {
+              setData(result.text);
+              setScan(false);
+            }
+          }}
+        />
+
+      )}
+      <div>
+        <button onClick={() => setData([])}>CLEAR</button>
+      </div>
       <div className="search">
         <div className="scandiv">
           <input
@@ -70,6 +100,17 @@ const Search = () => {
         <h1>{product}</h1>
         <ul>
           <img src={image} />
+        </ul>
+        <p>{ingredients} </p>
+        <p>Valeurs nutritionnelles</p>
+        <ul>
+          <li>Additif : {additives}</li>
+          <li>Matière grasse : {fat}</li>
+          <li>Teneur en sel : {salt}</li>
+          <li>Graisses saturées : {saturatedFat}</li>
+          <li>Teneur en sucre : {sugars}</li>
+          <li>Indice environnement : {environnement}</li>
+          <li>Nutriscore grade : {nutriscoreGrade}</li>
         </ul>
       </div>
     </div>

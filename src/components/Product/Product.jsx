@@ -8,10 +8,10 @@ const Product = () => {
   const [image, setImage] = useState();
   const [ingredients, setIngredients] = useState();
   const [additives, setAdditives] = useState();
-  //const [fat, setFat] = useState();
-  //const [salt, setSalt] = useState();
-  //const [saturatedFat, setSaturatedFat] = useState();
-  //const [sugars, setSugars] = useState();
+  const [fat, setFat] = useState();
+  const [salt, setSalt] = useState();
+  const [saturatedFat, setSaturatedFat] = useState();
+  const [sugars, setSugars] = useState();
   const [environnement, setEnvironnement] = useState();
   const [nutriscoreGrade, setNutriscoreGrade] = useState();
   
@@ -25,13 +25,15 @@ const Product = () => {
         setProduct([datas.product.brands]);
         setIngredients([datas.product.ingredients_text]);
         setAdditives([datas.product.additives_n]);
-        //setFat([datas.products.nutrient_levels.fat]);
-        //setSalt([datas.product.nutrient_levels.salt]);
-        // setSaturatedFat([datas.product.nutrient_levels.saturated-fat]);
-        //setSugars([datas.product.nutrient_levels.sugars]);
+        setFat([datas.product.nutrient_levels.fat]);
+        setSalt([datas.product.nutrient_levels.salt]);
+        setSaturatedFat([datas.product.nutrient_levels['saturated-fat']]);
+        setSugars([datas.product.nutrient_levels.sugars]);
         setEnvironnement([datas.product.ecoscore_data.agribalyse.score]);
-        setNutriscoreGrade([datas.product.grades]);
-      })}, []);
+        setNutriscoreGrade([datas.product.nutriscore_grade]);
+      })
+      .catch(() => console.log("Error"))
+  }, []);
 
 
 
@@ -43,10 +45,13 @@ const Product = () => {
         <p>{ingredients? ingredients :"null"} </p>
         <p>Valeurs nutritionnelles</p>
         <ul>
-          <li>Additif : {additives? additives :"null"}</li>
-   
-          <li>Indice environnement : {environnement? environnement :"null"}</li>
-          <li>Nutriscore grade : {nutriscoreGrade? nutriscoreGrade :"0"}</li>
+          <li>Additif : {additives}</li>
+          <li>Matière grasse : {fat ? fat : "Null"}</li>
+          <li>Teneur en sel : {salt ? salt : "Null"}</li>
+          <li>Graisses saturées : {saturatedFat ? saturatedFat :"Null"}</li>
+          <li>Teneur en sucre : {sugars ? sugars : "Null"}</li>
+          <li>Indice environnement : {environnement ? environnement : "Null"}</li>
+          <li>Nutriscore grade : {nutriscoreGrade ? nutriscoreGrade : "0"}</li>
         </ul>
       </div>
     </div>

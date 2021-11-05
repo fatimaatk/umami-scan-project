@@ -20,7 +20,7 @@ const Search = () => {
   };
 
   //3428273980046
-  const userAction = async (setProducts) => {
+  const userAction = async () => {
     // je vais récuperer un objet via Api
     fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
       // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
@@ -29,14 +29,14 @@ const Search = () => {
       .then((datas) => {
         // prend dans datas uniquement la marque et assigne le à setProduct
         setProducts([...products, datas.product]);
-      });
+      })
+      .catch(() => console.log("Error"));
   };
 
   return (
     <div className="searchtext">
       <p>What do you want to add to your Umami ?</p>
-      <button onClick={() => setScan(true)}>SCAN</button> <br />
-      <button onClick={() => setScan(false)}>Off</button>
+      <button onClick={() => setScan(!scan)}>SCAN</button> <br />
       {scan && (
 
         <BarcodeScannerComponent
@@ -72,7 +72,7 @@ const Search = () => {
           className="buttonadd"
           label="text"
           type="button"
-          onClick={() => userAction(setProducts)}
+          onClick={() => userAction()}
         >
           Add
         </button>

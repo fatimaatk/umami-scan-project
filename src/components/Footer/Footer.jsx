@@ -1,30 +1,24 @@
 import './footer.css';
-import Facebook from '../../assets/facebook.png';
-import Twitter from '../../assets/twitter.png';
-import Instagram from '../../assets/instagram.png';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>Follow Us</p>
-      <div className="div_ul">
-        <ul className="social_list">
-          <li className="social_list_li">
-            <img className="logo_sociaux" src={Facebook} alt="logo Facebook" />
-          </li>
-          <li className="social_list_li">
-            <img className="logo_sociaux" src={Twitter} alt="logo Twitter" />
-          </li>
-          <li className="social_list_li">
-            <img
-              className="logo_sociaux"
-              src={Instagram}
-              alt="logo Instagram"
-            />
-          </li>
-        </ul>
-      </div>
-      <p>Copyright @2021 | Designed by Umami Fr Remote</p>
+
+      <ul className="social_list">
+        <li className="contactTeam">
+            Aurelien Ferrand
+        </li>
+        <li className="contactTeam">
+            Fatima Ait Khelifa
+        </li>
+        <li className="contactTeam">
+            Julien Roth
+        </li>
+        <li className="contactTeam">
+            Nicolas Bas
+        </li>
+      </ul>
+      <p><br/>Copyright @2021 | Designed by Umami Fr Remote <br/> <br/>Project designed for Web Developper training at the WildCodeSchool</p>
     </footer>
   );
 };

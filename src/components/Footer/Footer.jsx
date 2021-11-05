@@ -1,30 +1,53 @@
 import './footer.css';
-import Facebook from '../../assets/facebook.png';
-import Twitter from '../../assets/twitter.png';
-import Instagram from '../../assets/instagram.png';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>Follow Us</p>
-      <div className="div_ul">
-        <ul className="social_list">
-          <li className="social_list_li">
-            <img className="logo_sociaux" src={Facebook} alt="logo Facebook" />
-          </li>
-          <li className="social_list_li">
-            <img className="logo_sociaux" src={Twitter} alt="logo Twitter" />
-          </li>
-          <li className="social_list_li">
-            <img
-              className="logo_sociaux"
-              src={Instagram}
-              alt="logo Instagram"
-            />
-          </li>
-        </ul>
-      </div>
-      <p>Copyright @2021 | Designed by Umami Fr Remote</p>
+      <ul className="social_list">
+        <li className="contactTeam">
+          <a
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Aurelien Ferrand
+          </a>
+        </li>
+        <li className="contactTeam">
+          <a
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Fatima Ait Khelifa
+          </a>
+        </li>
+        <li className="contactTeam">
+          {' '}
+          <a
+            href="https://www.linkedin.com/in/julienroth/?originalSubdomain=fr"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Julien Roth
+          </a>
+        </li>
+        <li className="contactTeam">
+          {' '}
+          <a
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Nicolas Bas
+          </a>
+        </li>
+      </ul>
+      <p>
+        <br />
+        Copyright @2021 | Designed by Umami Fr Remote <br /> <br />
+        Project designed for Web Developper training at the WildCodeSchool
+      </p>
     </footer>
   );
 };

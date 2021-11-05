@@ -1,5 +1,8 @@
 header {
   padding: 2rem;
+  border-bottom: solid 1px;
+  background-image: url("https://www.bienmanger.com/tinyMceData/images/contents/600/content_lg.jpg");
+  background-position: top;
 }
 
 .header-container {
@@ -14,15 +17,30 @@ nav {
 }
 
 nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
-  padding: 0;
-  width: 100%;
+  padding-top: 10%;
+  padding-left: 0;
 }
 
 nav ul li {
-  margin: 0 auto 0.5rem auto;
+  margin: 0 0 0.5rem 0;
   text-align: center;
   padding: 0.5rem;
+}
+
+.navlink {
+  border: solid black 1px;
+  border-radius: 30px;
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.navlink a {
+  text-decoration: none;
+  color: black;
 }
 
 .hamburger-opened nav {
@@ -41,7 +59,7 @@ nav ul li {
 }
 
 .hamburger-span {
-  background: #000;
+  background: rgb(255, 255, 255);
   border-radius: 9px;
   cursor: pointer;
   display: block;
@@ -93,6 +111,7 @@ nav ul li {
 
   nav {
     display: block;
+    width: 50vw;
   }
 
   .hamburger-opened nav {
@@ -101,6 +120,12 @@ nav ul li {
 
   nav ul {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  .navlink {
+    width: 28%;
   }
 }

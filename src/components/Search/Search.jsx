@@ -30,7 +30,7 @@ const Search = () => {
   };
 
   //3428273980046
-  const userAction = async (setImage, setProduct) => {
+  const userAction = async () => {
     // je vais récuperer un objet via Api
     fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
       // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
@@ -46,18 +46,18 @@ const Search = () => {
         setAdditives([datas.product.additives_n]);
         setFat([datas.product.nutrient_levels.fat]);
         setSalt([datas.product.nutrient_levels.salt]);
-        setSaturatedFat([datas.product.nutrient_levels.saturated-fat]);
+        setSaturatedFat([datas.product.nutrient_levels['saturated-fat']]);
         setSugars([datas.product.nutrient_levels.sugars]);
         setEnvironnement([datas.product.ecoscore_data.agribalyse.score]);
         setNutriscoreGrade([datas.product.nutriscore_grade]);
-      });
+      })
+      .catch(() => console.log("Error"));
   };
 
   return (
     <div className="searchtext">
       <p>What do you want to add to your Umami ?</p>
-      <button onClick={() => setScan(true)}>SCAN</button> <br />
-      <button onClick={() => setScan(false)}>Off</button>
+      <button onClick={() => setScan(!scan)}>SCAN</button> <br />
       {scan && (
 
         <BarcodeScannerComponent
@@ -93,7 +93,7 @@ const Search = () => {
           className="buttonadd"
           label="text"
           type="button"
-          onClick={() => userAction(setImage, setProduct)}
+          onClick={() => userAction()}
         >
           Add
         </button>
@@ -116,6 +116,7 @@ const Search = () => {
           <li>Teneur en sucre : {sugars ? sugars : "Null"}</li>
           <li>Indice environnement : {environnement ? environnement : "Null"}</li>
           <li>Nutriscore grade : {nutriscoreGrade ? nutriscoreGrade : "0"}</li>
+          
         </ul>
       </div>
     </div>

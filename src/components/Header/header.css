@@ -3,6 +3,8 @@ header {
   border-bottom: solid 1px;
   background-image: url("https://www.bienmanger.com/tinyMceData/images/contents/600/content_lg.jpg");
   background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .header-container {
@@ -10,6 +12,22 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.logo {
+  animation-duration: 4s;
+  animation-name: bounce;
+  animation-iteration-count: 1;
+}
+
+@keyframes bounce {
+  from {
+    margin-top: 100vh;
+  }
+
+  to {
+    margin-top: 0%;
+  }
 }
 
 nav {

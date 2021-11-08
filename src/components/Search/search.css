@@ -1,19 +1,32 @@
-.search {
-  display: flex;
-  justify-content: space-around;
+.mainSearch {
   background-color: #f6faed;
-  margin-top: 3%;
+  height: 80vh;
 }
 
+/* Correspond à la div globale de search */
 .searchtext {
-  padding-top: 50%;
-  background-color: #f6faed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40%;
   text-align: center;
+  padding-bottom: 20%;
+}
+
+
+/* correspond à la div de recherche input + photo + add */
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f6faed;
+  width: 90%;
+  margin-top: 3%;
 }
 
 @media screen and (min-width: 800px) {
   .search {
-    width: 100%;
+    width: 60%;
     background-color: #f6faed;
     justify-content: center;
   }
@@ -23,7 +36,36 @@
   }
 }
 
+.scandiv {
+  display: flex;
+  justify-content: space-around;
+  height: 50%;
+  width: 70%;
+  background-color: white;
+  margin-left: 1%;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.inputSearch {
+  /* border: none; */
+  width: 60%;
+  outline: none;
+  border: white;
+}
+
 .logoIconPhoto {
-  width: 10%;
+  width: 15%;
+  height: 15%;
   margin: 0;
+}
+
+/* bouton recherche */
+.buttonadd {
+  width: 20%;
+  margin-left: 2%;
+  color: white;
+  background-color: black;
+  border: solid black;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 10px;
 }

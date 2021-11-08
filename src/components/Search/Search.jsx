@@ -1,11 +1,8 @@
 import { useState } from 'react';
-// import Button from './Button/Button';
-// import Scan from './Scan/Scan';
 import './search.css';
-import './Button/button.css';
 import BarcodeScannerComponent from 'react-qr-barcode-scanner';
 import ProductList from '../ProductList/ProductList';
-//import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
+import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
 
 const Search = () => {
   // const [product, setProduct] = useState();
@@ -16,7 +13,6 @@ const Search = () => {
     //setData([...data, e.result.text]);
     window.navigator.vibrate(100);
     setData(e.target.value);
-
   };
 
   //3428273980046
@@ -32,52 +28,63 @@ const Search = () => {
       });
   };
 
+
+
   return (
-    <div className="searchtext">
-      <p>What do you want to add to your Umami ?</p>
-      <button onClick={() => setScan(true)}>SCAN</button> <br />
-      <button onClick={() => setScan(false)}>Off</button>
-      {scan && (
-
-        <BarcodeScannerComponent
-          width={400}
-          height={200}
-          onUpdate={(err, result) => {
-            if (result) {
-              setData(result.text);
-              setScan(false);
-            }
-          }}
-        />
-
-      )}
-      <div>
-        <button onClick={() => setData([])}>CLEAR</button>
-      </div>
-      <div className="search">
-        <div className="scandiv">
-          <input
-            value={data}
-            onChange={handleSearchValue}
-            type="text"
-            id="input"
-            name="input"
-            required
-            size="100%"
-            placeholder="Product search ..."
+    <div className="mainSearch">
+      <div className="searchtext">
+        <p>What do you want to add to your Umami ?</p>
+     
+        {scan && (
+          <BarcodeScannerComponent
+            width={400}
+            height={200}
+            className="visio"
+            onUpdate={(err, result) => {
+              if (result) {
+                setData(result.text);
+                setScan(false);
+              }
+            }}
           />
-          <img className="logoIconPhoto" src="#" alt="logo scan" />
+        )}
+        <div>
+        
         </div>
-        <button
-          className="buttonadd"
-          label="text"
-          type="button"
-          onClick={() => userAction(setProducts)}
-        >
+        <div className="search">
+          <div className="scandiv">
+            <input
+              value={data}
+              onChange={handleSearchValue}
+              type="text"
+              id="input"
+              name="input"
+              required
+              size="100%"
+              placeholder="Product search ..."
+              className="inputSearch"
+            />
+            <img
+              className="logoIconPhoto"
+              src={LogoIconPhoto}
+              alt="logo scan"
+              onClick={() => setScan(!scan)}
+            />
+          </div>
+          <button
+            className="buttonadd"
+            label="text"
+            type="button"
+            onClick={() => userAction(setProducts)}
+          >
           Add
-        </button>
+          </button>
+       
+        
+        </div>
+   
       </div>
-      <ProductList products={products} data={data} />
+      <ProductList products={products} data={data} />   <button onClick={() => setData([])}>CLEAR</button>
     </div>
   );
 };

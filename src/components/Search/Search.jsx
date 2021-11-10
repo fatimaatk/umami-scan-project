@@ -16,7 +16,7 @@ const Search = () => {
   };
 
   //3428273980046
-  const userAction = async (setProducts) => {
+  const userAction = async () => {
     // je vais récuperer un objet via Api
     fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
       // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
@@ -25,10 +25,9 @@ const Search = () => {
       .then((datas) => {
         // prend dans datas uniquement la marque et assigne le à setProduct
         setProducts([...products, datas.product]);
-      });
+      })
+      .catch(() => console.log("Error"));
   };
-
-
 
   return (
     <div className="mainSearch">

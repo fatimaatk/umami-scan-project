@@ -37,6 +37,7 @@ const Product = () => {
         setNova([datas.product['nova_group']]);
         setNutriscoreGrade([datas.product.nutriscore_grade]);
       });
+      .catch(() => console.log("Error"))
   }, []);
 
   // <li>Graisse : {fat? fat :"0"}</li>

@@ -29,13 +29,13 @@ function ProductCard({
       <p>{ingredients} </p>
       <p>Valeurs nutritionnelles</p>
       <ul>
-        <li>Additif : {additives}</li>
-        <li>Matière grasse : {fat ? fat : 'Null'}</li>
-        <li>Teneur en sel : {salt ? salt : 'Null'}</li>
-        <li>Graisses saturées : {saturatedFat ? saturatedFat : 'Null'}</li>
-        <li>Teneur en sucre : {sugars ? sugars : 'Null'}</li>
-        <li>Indice environnement : {environnement ? environnement : 'Null'}</li>
-        <li>Nutriscore grade : {nutriscoreGrade ? nutriscoreGrade : 'X'}</li>
+        <li>Additif : {additives ? additives : "Non renseigné"}</li>
+        <li>Matière grasse : {fat ? fat : 'Non renseignée'}</li>
+        <li>Teneur en sel : {salt ? salt : 'Non renseignée'}</li>
+        <li>Graisses saturées : {saturatedFat ? saturatedFat : 'Non renseignée'}</li>
+        <li>Teneur en sucre : {sugars ? sugars : 'Non renseignée'}</li>
+        <li>Indice environnement : {environnement == undefined ? environnement : 'Non renseigné'}</li>
+        <li>Nutriscore grade : {nutriscoreGrade ? nutriscoreGrade : 'Non renseigné'}</li>
       </ul>
     </div>
   );

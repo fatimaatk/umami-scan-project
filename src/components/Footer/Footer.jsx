@@ -6,7 +6,7 @@ const Footer = () => {
       <ul className="social_list">
         <li className="contactTeam">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/aurelien-ferrand-970149220/"
             target="_blank"
             rel="noreferrer"
           >
@@ -15,7 +15,7 @@ const Footer = () => {
         </li>
         <li className="contactTeam">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/fatima-ait-khelifa-4ab840215"
             target="_blank"
             rel="noreferrer"
           >
@@ -35,7 +35,7 @@ const Footer = () => {
         <li className="contactTeam">
           {' '}
           <a
-            href="#"
+            href="https://www.linkedin.com/in/nicolas-bas-09ab32124/"
             target="_blank"
             rel="noreferrer"
           >

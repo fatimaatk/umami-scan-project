@@ -8,7 +8,7 @@
   width: 100vw;
   margin-bottom: 0;
   border-top: black solid 1px;
-  background-image: url("https://www.bienmanger.com/tinyMceData/images/contents/600/content_lg.jpg");
+  background-image: url('../../assets/backgroundfruits.jpeg');
   background-position: 0 80%;
   opacity: 1;
   color: white;
@@ -26,9 +26,7 @@
 .contactTeam {
   list-style: none;
   line-height: 2;
-  background-color: black;
   width: 100%;
-  border-radius: 30px;
 }
 
 a {
@@ -46,12 +44,13 @@ a {
     justify-content: space-around;
     align-items: center;
     padding: 0;
-    width: 100vw;
-    height: 10vh;
+    width: 80%;
+    height: 5vh;
   }
 
-  footer {
+  .footer {
     background-size: cover;
+    height: 40vh;
   }
 
   .contactTeam {

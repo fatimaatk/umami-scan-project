@@ -1,7 +1,7 @@
 header {
   padding: 2rem;
   border-bottom: solid 1px;
-  background-image: url("https://www.bienmanger.com/tinyMceData/images/contents/600/content_lg.jpg");
+  background-image: url("../../assets/backgroundfruits.jpeg");
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -145,5 +145,13 @@ nav ul li {
 
   .navlink {
     width: 28%;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .header-container {
+    max-width: 90%;
+    padding: 0;
+    margin-left: 4%;
   }
 }

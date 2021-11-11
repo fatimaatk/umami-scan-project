@@ -1,6 +1,4 @@
 import { useState } from 'react';
-// import Button from './Button/Button';
-// import Scan from './Scan/Scan';
 import './search.css';
 import './Button/button.css';
 import BarcodeScannerComponent from 'react-qr-barcode-scanner';
@@ -8,15 +6,16 @@ import ProductList from '../ProductList/ProductList';
 //import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
 
 const Search = () => {
-  // const [product, setProduct] = useState();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(() => {
+    const localProducts = localStorage.getItem('products');
+    return localProducts ? JSON.parse(localProducts) : [];
+  });
   const [scan, setScan] = useState(false);
   const [data, setData] = useState('');
   const handleSearchValue = (e) => {
     //setData([...data, e.result.text]);
     window.navigator.vibrate(100);
     setData(e.target.value);
-
   };
 
   //3428273980046
@@ -29,6 +28,8 @@ const Search = () => {
       .then((datas) => {
         // prend dans datas uniquement la marque et assigne le à setProduct
         setProducts([...products, datas.product]);
+        localStorage.setItem('products', JSON.stringify([...products, datas.product]));
+        //localStorage.setItem('products', [...products, datas.product]);
       })
       .catch(() => console.log("Error"));
   };
@@ -77,7 +78,7 @@ const Search = () => {
           Add
         </button>
       </div>
-      <ProductList products={products} data={data} />
+      <ProductList products={products} />
     </div>
   );
 };

@@ -27,7 +27,14 @@ const Search = () => {
         // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
         .then((datas) => {
           // prend dans datas uniquement la marque et assigne le à setProduct
-          setProducts([...products, datas.product]);
+          const productAlreadyThere = products.find((e) => e._id === data);
+          if (!productAlreadyThere) {
+            setProducts([...products, datas.product]);
+            localStorage.setItem(
+              'products',
+              JSON.stringify([...products, datas.product])
+            );
+          } else alert('Insert a barre code');
         });
       //.catch(() => console.log('Error'));
     } else alert('Insert a barre code');

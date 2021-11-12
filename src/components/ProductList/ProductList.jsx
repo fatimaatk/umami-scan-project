@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ProductCard from '../ProductCard/ProductCard';
 import './productList.css';
 
-function ProductList({ products }) {
+function ProductList({ products, handleDelete, handleFavorites, isFavorite }) {
   return (
     <div className="ProductList">
       {products.map((product) => (
@@ -13,6 +13,9 @@ function ProductList({ products }) {
           productName={product.product_name}
           image={product.image_front_small_url}
           nutriscoreGrade={product.nutriscore_grade}
+          handleDelete={handleDelete}
+          handleFavorites={handleFavorites}
+          isFavorite={isFavorite}
         />
       ))}
     </div>

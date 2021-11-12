@@ -4,15 +4,19 @@ import PropTypes from 'prop-types';
 import { FaHeart, FaRegTimesCircle } from 'react-icons/fa';
 import './productCard.css';
 
-function ProductCard({ productName, image, nutriscoreGrade, id }) {
+function ProductCard({
+  productName,
+  image,
+  nutriscoreGrade,
+  id,
+  handleDelete,
+  handleFavorites,
+}) {
   const divStyle = {
     backgroundImage: 'url(' + image + ')',
   };
   const [isFavorite, setIsFavorite] = React.useState(false);
   const handleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
-  const handleDelete = () => {
     setIsFavorite(!isFavorite);
   };
   return (
@@ -22,8 +26,14 @@ function ProductCard({ productName, image, nutriscoreGrade, id }) {
           <div
             id="favorite"
             className={isFavorite ? 'isFavorite' : 'notFavorite'}
-            onClick={handleFavorite}
-            onKeyDown={handleFavorite}
+            onClick={() => {
+              handleFavorite();
+              handleFavorites(id, isFavorite);
+            }}
+            onKeyDown={() => {
+              handleFavorite();
+              handleFavorites(id, isFavorite);
+            }}
             role="button"
             tabIndex={0}
           >
@@ -31,8 +41,8 @@ function ProductCard({ productName, image, nutriscoreGrade, id }) {
           </div>
           <div
             className="delete"
-            onClick={handleDelete}
-            onKeyDown={handleDelete}
+            onClick={() => handleDelete(id)}
+            onKeyDown={() => handleDelete(id)}
             role="button"
             tabIndex={0}
           >

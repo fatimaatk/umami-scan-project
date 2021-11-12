@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import './search.css';
 import BarcodeScannerComponent from 'react-qr-barcode-scanner';
@@ -17,6 +19,19 @@ const Search = () => {
     setData(e.target.value);
   };
 
+  const [isFavorite, setIsFavorite] = useState(false);
+  const handleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+  const handleDelete = (id) => {
+    const del = window.confirm('Are you sure?');
+    if (del) {
+      const newProductList = products.filter((product) => product._id !== id);
+      setProducts(newProductList);
+      localStorage.setItem('products', JSON.stringify(newProductList));
+    }
+  };
+
   //3428273980046
   const userAction = async () => {
     if (data !== '') {
@@ -34,7 +49,7 @@ const Search = () => {
               'products',
               JSON.stringify([...products, datas.product])
             );
-          } else alert('Insert a barre code');
+          } else alert('Product already added');
         });
       //.catch(() => console.log('Error'));
     } else alert('Insert a barre code');
@@ -43,7 +58,7 @@ const Search = () => {
   return (
     <div className="mainSearch">
       <div className="searchtext">
-        <p>What do you want to add to your Umami ?</p>
+        <p className="textSearch">What do you want to add to your Umami ?</p>
 
         {scan && (
           <BarcodeScannerComponent
@@ -58,7 +73,6 @@ const Search = () => {
             }}
           />
         )}
-        <div></div>
         <div className="search">
           <div className="scandiv">
             <input
@@ -73,28 +87,28 @@ const Search = () => {
               className="inputSearch"
             />
             <img
-              onClick={() => setScan(!scan)}
-              onKeyDown={() => setScan(!scan)}
               className="logoIconPhoto"
               src={LogoIconPhoto}
               alt="logo scan"
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-              role="button"
-              tabIndex={0}
+              onClick={() => setScan(!scan)}
             />
           </div>
           <button
             className="buttonadd"
             label="text"
             type="button"
-            onClick={() => userAction(setProducts)}
+            onClick={() => userAction()}
           >
-            Add
+            <span>Add </span>
           </button>
         </div>
       </div>
-      <ProductList products={products} />
-      <button onClick={() => setData([])}>CLEAR</button>
+      <ProductList
+        products={products}
+        handleFavorite={handleFavorite}
+        handleDelete={handleDelete}
+      />
+      <button onClick={() => localStorage.clear()}>CLEAR</button>
     </div>
   );
 };

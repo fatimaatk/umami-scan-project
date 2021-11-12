@@ -74,6 +74,7 @@ const Search = () => {
               className="logoIconPhoto"
               src={LogoIconPhoto}
               alt="logo scan"
+              // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
               role="button"
               tabIndex={0}
             />

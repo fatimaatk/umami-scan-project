@@ -4,7 +4,6 @@ import ProductCard from '../ProductCard/ProductCard';
 import './productList.css';
 
 function ProductList({ products }) {
-  console.log(products);
   return (
     <div className="ProductList">
       {products.map((product) => (
@@ -25,7 +24,7 @@ ProductList.propTypes = {
   id: PropTypes.string,
   productName: PropTypes.string,
   image: PropTypes.string,
-  nutriscoreGrade: PropTypes.string
+  nutriscoreGrade: PropTypes.string,
 };
 
 export default ProductList;

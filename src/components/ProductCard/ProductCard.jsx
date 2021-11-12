@@ -10,11 +10,14 @@ function ProductCard({
   nutriscoreGrade,
   id,
   handleDelete,
-  handleFavorite,
-  isFavorite,
+  handleFavorites,
 }) {
   const divStyle = {
     backgroundImage: 'url(' + image + ')',
+  };
+  const [isFavorite, setIsFavorite] = React.useState(false);
+  const handleFavorite = () => {
+    setIsFavorite(!isFavorite);
   };
   return (
     <div className="ProductCard" style={divStyle}>
@@ -23,8 +26,14 @@ function ProductCard({
           <div
             id="favorite"
             className={isFavorite ? 'isFavorite' : 'notFavorite'}
-            onClick={() => handleFavorite()}
-            onKeyDown={() => handleFavorite()}
+            onClick={() => {
+              handleFavorite();
+              handleFavorites(id, isFavorite);
+            }}
+            onKeyDown={() => {
+              handleFavorite();
+              handleFavorites(id, isFavorite);
+            }}
             role="button"
             tabIndex={0}
           >

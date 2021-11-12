@@ -1,4 +1,12 @@
-.productList{
-  height: 70vh;
-  background-color: #F6FAED;
+.ProductList {
+  background-color: #f6faed;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen AND (min-width: 700px) {
+  .ProductList {
+    margin: 4rem auto;
+  }
 }

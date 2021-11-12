@@ -5,8 +5,10 @@ import ProductList from '../ProductList/ProductList';
 import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
 
 const Search = () => {
-  // const [product, setProduct] = useState();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(() => {
+    const localProducts = localStorage.getItem('products');
+    return localProducts ? JSON.parse(localProducts) : [];
+  });
   const [scan, setScan] = useState(false);
   const [data, setData] = useState('');
   const handleSearchValue = (e) => {
@@ -25,15 +27,20 @@ const Search = () => {
       .then((datas) => {
         // prend dans datas uniquement la marque et assigne le à setProduct
         setProducts([...products, datas.product]);
+        localStorage.setItem(
+          'products',
+          JSON.stringify([...products, datas.product])
+        );
+        //localStorage.setItem('products', [...products, datas.product]);
       })
-      .catch(() => console.log("Error"));
+      .catch(() => console.log('Error'));
   };
 
   return (
     <div className="mainSearch">
       <div className="searchtext">
         <p>What do you want to add to your Umami ?</p>
-     
+
         {scan && (
           <BarcodeScannerComponent
             width={400}
@@ -47,9 +54,7 @@ const Search = () => {
             }}
           />
         )}
-        <div>
-        
-        </div>
+        <div></div>
         <div className="search">
           <div className="scandiv">
             <input
@@ -64,10 +69,13 @@ const Search = () => {
               className="inputSearch"
             />
             <img
+              onClick={() => setScan(!scan)}
+              onKeyDown={() => setScan(!scan)}
               className="logoIconPhoto"
               src={LogoIconPhoto}
               alt="logo scan"
-              onClick={() => setScan(!scan)}
+              role="button"
+              tabIndex={0}
             />
           </div>
           <button
@@ -76,14 +84,12 @@ const Search = () => {
             type="button"
             onClick={() => userAction(setProducts)}
           >
-          Add
+            Add
           </button>
-       
-        
         </div>
-   
       </div>
-      <ProductList products={products} data={data} />   <button onClick={() => setData([])}>CLEAR</button>
+      <ProductList products={products} />
+      <button onClick={() => setData([])}>CLEAR</button>
     </div>
   );
 };

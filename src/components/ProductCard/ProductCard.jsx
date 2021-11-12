@@ -1,58 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FaHeart, FaRegTimesCircle } from 'react-icons/fa';
+import './productCard.css';
 
-function ProductCard({
-  productName,
-  image,
-  brand,
-  ingredients,
-  data,
-  additives,
-  salt,
-  saturatedFat,
-  sugars,
-  environnement,
-  nutriscoreGrade,
-  fat,
-}) {
+function ProductCard({ productName, image, nutriscoreGrade, id }) {
+  const divStyle = {
+    backgroundImage: 'url(' + image + ')',
+  };
+  const [isFavorite, setIsFavorite] = React.useState(false);
+  const handleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+  const handleDelete = () => {
+    setIsFavorite(!isFavorite);
+  };
   return (
-    <div className="ProductCard">
-      <h1>{productName}</h1>
-      <h2>{brand}</h2>
-      <ul>
-        <button className="details">
-          <Link to={`/product/${data}`}>Redirection test</Link>
-        </button>
-        <img src={image} />
-      </ul>
-      <p>{ingredients} </p>
-      <p>Valeurs nutritionnelles</p>
-      <ul>
-        <li>Additif : {additives ? additives : "Non renseigné"}</li>
-        <li>Matière grasse : {fat ? fat : 'Non renseignée'}</li>
-        <li>Teneur en sel : {salt ? salt : 'Non renseignée'}</li>
-        <li>Graisses saturées : {saturatedFat ? saturatedFat : 'Non renseignée'}</li>
-        <li>Teneur en sucre : {sugars ? sugars : 'Non renseignée'}</li>
-        <li>Indice environnement : {environnement == undefined ? environnement : 'Non renseigné'}</li>
-        <li>Nutriscore grade : {nutriscoreGrade ? nutriscoreGrade : 'Non renseigné'}</li>
-      </ul>
+    <div className="ProductCard" style={divStyle}>
+      <div className="ProductCard-container">
+        <div className="ProductCard-edit">
+          <div
+            id="favorite"
+            className={isFavorite ? 'isFavorite' : 'notFavorite'}
+            onClick={handleFavorite}
+            onKeyDown={handleFavorite}
+            role="button"
+            tabIndex={0}
+          >
+            <FaHeart />
+          </div>
+          <div
+            className="delete"
+            onClick={handleDelete}
+            onKeyDown={handleDelete}
+            role="button"
+            tabIndex={0}
+          >
+            <FaRegTimesCircle />
+          </div>
+        </div>
+        <h2>{productName}</h2>
+        <p>
+          Nutriscore :{' '}
+          <span className={`nustriscore ${nutriscoreGrade}`}>
+            {nutriscoreGrade ? nutriscoreGrade : 'X'}
+          </span>
+        </p>
+        <div className="details">
+          <Link to={`/product/${id}`}>View product details</Link>
+        </div>
+      </div>
     </div>
   );
 }
 ProductCard.propTypes = {
+  id: PropTypes.string,
   productName: PropTypes.string,
   image: PropTypes.string,
-  brand: PropTypes.string,
-  ingredients: PropTypes.string,
-  additives: PropTypes.string,
-  saturatedFat: PropTypes.string,
-  salt: PropTypes.string,
-  sugars: PropTypes.string,
-  environnement: PropTypes.string,
   nutriscoreGrade: PropTypes.string,
-  fat: PropTypes.string,
-  data: PropTypes.string,
 };
 
 export default ProductCard;

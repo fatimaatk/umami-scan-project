@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import './search.css';
 import BarcodeScannerComponent from 'react-qr-barcode-scanner';
@@ -5,8 +7,10 @@ import ProductList from '../ProductList/ProductList';
 import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
 
 const Search = () => {
-  // const [product, setProduct] = useState();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(() => {
+    const localProducts = localStorage.getItem('products');
+    return localProducts ? JSON.parse(localProducts) : [];
+  });
   const [scan, setScan] = useState(false);
   const [data, setData] = useState('');
   const handleSearchValue = (e) => {
@@ -17,23 +21,25 @@ const Search = () => {
 
   //3428273980046
   const userAction = async () => {
-    // je vais récuperer un objet via Api
-    fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
-      // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
-      .then((res) => res.json())
-      // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
-      .then((datas) => {
-        // prend dans datas uniquement la marque et assigne le à setProduct
-        setProducts([...products, datas.product]);
-      })
-      .catch(() => console.log("Error"));
+    if (data !== '') {
+      // je vais récuperer un objet via Api
+      fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
+        // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
+        .then((res) => res.json())
+        // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
+        .then((datas) => {
+          // prend dans datas uniquement la marque et assigne le à setProduct
+          setProducts([...products, datas.product]);
+        });
+      //.catch(() => console.log('Error'));
+    } else alert('Insert a barre code');
   };
 
   return (
     <div className="mainSearch">
       <div className="searchtext">
-        <p>What do you want to add to your Umami ?</p>
-     
+        <p className="textSearch">What do you want to add to your Umami ?</p>
+
         {scan && (
           <BarcodeScannerComponent
             width={400}
@@ -47,9 +53,6 @@ const Search = () => {
             }}
           />
         )}
-        <div>
-        
-        </div>
         <div className="search">
           <div className="scandiv">
             <input
@@ -74,16 +77,14 @@ const Search = () => {
             className="buttonadd"
             label="text"
             type="button"
-            onClick={() => userAction(setProducts)}
+            onClick={() => userAction()}
           >
-          Add
+            <span>Add </span>
           </button>
-       
-        
         </div>
-   
       </div>
-      <ProductList products={products} data={data} />   <button onClick={() => setData([])}>CLEAR</button>
+      <ProductList products={products} />
+      <button onClick={() => setData([])}>CLEAR</button>
     </div>
   );
 };

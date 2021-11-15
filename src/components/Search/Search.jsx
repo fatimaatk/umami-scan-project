@@ -22,8 +22,41 @@ const Search = () => {
     setData(e.target.value);
   };
 
+  // const handleFavorites = (id, isFavorite) => {
+  //   if (!isFavorite) {
+  //     const newFavorite = products.find((product) => product._id === id);
+  //     setFavorites([...favorites, newFavorite]);
+  //     localStorage.setItem(
+  //       'favorites',
+  //       JSON.stringify([...favorites, newFavorite])
+  //     );
+  //   } else {
+  //     const newFavorites = favorites.filter((favorite) => favorite._id != id);
+  //     setFavorites(newFavorites);
+  //     localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  //   }
+  // };
+
+  // const handleFavorites = (id) => {
+  //   let newFavorite = favorites.find((favorite) => favorite._id === id);
+  //   if (newFavorite === undefined) {
+  //     newFavorite = products.find((product) => product._id === id);
+  //     if (newFavorite !== undefined) {
+  //       setFavorites([...favorites, newFavorite]);
+  //       localStorage.setItem(
+  //         'favorites',
+  //         JSON.stringify([...favorites, newFavorite])
+  //       );
+  //     }
+  //   } else {
+  //     const newFavorites = favorites.filter((favorite) => favorite._id !== id);
+  //     setFavorites(newFavorites);
+  //     localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  //   }
+  // };
+
   const handleFavorites = (id, isFavorite) => {
-    if (isFavorite == false) {
+    if (!isFavorite) {
       const newFavorite = products.find((product) => product._id === id);
       if (favorites != []) {
         setFavorites([...favorites, newFavorite]);
@@ -31,9 +64,6 @@ const Search = () => {
           'favorites',
           JSON.stringify([...favorites, newFavorite])
         );
-      } else {
-        setFavorites(newFavorite);
-        localStorage.setItem('favorites', JSON.stringify(newFavorite));
       }
     } else {
       const newFavorites = favorites.filter((favorite) => favorite._id != id);
@@ -41,7 +71,6 @@ const Search = () => {
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
     }
   };
-
   const handleDelete = (id) => {
     const del = window.confirm('Are you sure?');
     if (del) {

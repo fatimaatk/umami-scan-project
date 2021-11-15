@@ -22,7 +22,7 @@ const Search = () => {
     setData(e.target.value);
   };
 
-  const handleFavorites = (id, isFavorite) => {
+  const addFavorites = (id, isFavorite) => {
     if (!isFavorite) {
       const newFavorite = products.find((product) => product._id === id);
       if (favorites != []) {
@@ -74,7 +74,9 @@ const Search = () => {
   return (
     <div className="mainSearch">
       <div className="searchtext">
-        <p className="textSearch">What do you want to add to your Umami ?</p>
+        <p className="textSearch">
+          Quel produit souhaitez vous ajouter dans votre Umami?
+        </p>
 
         {scan && (
           <BarcodeScannerComponent
@@ -99,7 +101,7 @@ const Search = () => {
               name="input"
               required
               size="100%"
-              placeholder="Product search ..."
+              placeholder="code barre..."
               className="inputSearch"
             />
             <img
@@ -115,13 +117,13 @@ const Search = () => {
             type="button"
             onClick={() => userAction()}
           >
-            <span>Add </span>
+            <span>Ajouter </span>
           </button>
         </div>
       </div>
       <ProductList
         products={products}
-        handleFavorites={handleFavorites}
+        addFavorites={addFavorites}
         handleDelete={handleDelete}
       />
       <button onClick={() => localStorage.clear()}>CLEAR</button>

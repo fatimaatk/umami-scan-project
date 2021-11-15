@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './contact.css';
@@ -41,7 +42,7 @@ const Contact = () => {
     let formMess = document.querySelector('.form-message');
     formMess.innerHTML =
       "Message envoyé! l'équipe Umami vous recontactera dès que possible.";
-    formMess.style.background = '#00FF00';
+    formMess.style.background = '#00bfbc';
     formMess.style.opacity = '1';
 
     document.getElementById('name').classList.remove('error');
@@ -107,7 +108,9 @@ const Contact = () => {
           value={phone}
         />
         <div className="email-content">
-          <label id="not-mail">Email non valide</label>
+          <label htmlFor="email" id="not-mail">
+            Email non valide
+          </label>
           <input
             type="mail"
             id="email"

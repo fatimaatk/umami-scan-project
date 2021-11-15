@@ -3,6 +3,7 @@
 }
 
 /* Correspond à la div globale de search */
+
 .searchtext {
   display: flex;
   flex-direction: column;
@@ -12,8 +13,13 @@
   padding-bottom: 20%;
 }
 
+.textSearch {
+  font-size: 35px;
+  color: grey;
+}
 
 /* correspond à la div de recherche input + photo + add */
+
 .search {
   display: flex;
   flex-direction: row;
@@ -29,7 +35,6 @@
     background-color: #f6faed;
     justify-content: center;
   }
-
   .searchtext {
     padding-top: 10%;
   }
@@ -43,13 +48,16 @@
   background-color: white;
   margin-left: 1%;
   box-shadow: 5px 5px 5px grey;
+  border:solid 1px rgba(48, 10, 10, 0.493);
+  border-radius: 15px;
 }
 
-.inputSearch {
+input.inputSearch {
   /* border: none; */
   width: 60%;
   outline: none;
-  border: white;
+  border-radius: 15px;
+  background-color: white;
 }
 
 .logoIconPhoto {
@@ -59,14 +67,45 @@
 }
 
 /* bouton recherche */
+
 .buttonadd {
   width: 20%;
   margin-left: 2%;
-  color: white;
-  background-color: black;
-  border: solid black;
+  color: rgb(3, 3, 3);
+  background-color: #B2BABB;
+  border: solid 1px rgb(0, 0, 0);
   box-shadow: 5px 5px 5px grey;
-  border-radius: 10px;
+  border-radius: 20px;
+  transition-duration: 0.5s;
+}
+
+.buttonadd span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonadd span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonadd:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.buttonadd:hover span {
+  padding-right: 25px;
+}
+
+.buttonadd:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 @media screen and (min-width: 1020px) {
@@ -74,7 +113,6 @@
     width: 20%;
     font-size: 20px;
   }
-
   .inputSearch {
     font-size: 20px;
   }

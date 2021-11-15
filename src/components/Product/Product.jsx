@@ -36,8 +36,8 @@ const Product = () => {
         setSugars([datas.product.nutrient_levels.sugars]);
         setNova([datas.product['nova_group']]);
         setNutriscoreGrade([datas.product.nutriscore_grade]);
-      });
-      .catch(() => console.log("Error"))
+      })
+      .catch(() => console.log('Error'));
   }, []);
 
   // <li>Graisse : {fat? fat :"0"}</li>
@@ -58,12 +58,14 @@ const Product = () => {
           <img className="image" src={image ? image : 'null'} alt="product" />
 
           <ul className="ullist">
+            {saturatedFat && (
+              <li className="titlelist">
+                <span className={`saturatedFat ${saturatedFat}`}></span> Graisse
+                saturée
+              </li>
+            )}
             <li className="titlelist">
-              <span className={`saturatedFat ${saturatedFat}`}></span> Graisse
-              saturée{' '}
-            </li>
-            <li className="titlelist">
-              <span className={`salt ${salt}`}></span> Teneur en sel{' '}
+              <span className={`salt ${salt}`}></span> Teneur en sel
             </li>
             <li className="titlelist">
               <span className={`sugars ${sugars}`}></span> Teneur en sucre
@@ -84,26 +86,16 @@ const Product = () => {
         <p className="textlevel">
           L&apos;ensemble des éléments indiqués sont basés sur l&apos;API
           openfoodfacts.
-          <br /> <br /> Les valeurs nutrionnelles sont évaluées sous trois
-          niveaux : <br /> faible{' '}
-          <img
-            className="levelicon"
-            src={lowicon}
-            alt="faible"
-          />
-          , modéré{' '}
-          <img
-            className="levelicon"
-            src={moderateicon}
-            alt="modérée"
-          />
-          et élevée{' '}
-          <img
-            className="levelicon"
-            src={highicon}
-            alt="élevée"
-          />
-          .<br /><br/> La classification NOVA assigne un groupe aux produits alimentaires en fonction du degré de transformation qu&apos;ils ont subi.
+        </p>
+        <p className="textlevel">
+          Les valeurs nutrionnelles sont évaluées sous trois niveaux : <br />
+          faible <img className="levelicon" src={lowicon} alt="faible" />,
+          modéré <img className="levelicon" src={moderateicon} alt="modérée" />
+          et élevée. <img className="levelicon" src={highicon} alt="élevée" />
+        </p>
+        <p className="textlevel">
+          La classification NOVA assigne un groupe aux produits alimentaires en
+          fonction du degré de transformation qu&apos;ils ont subi.
         </p>
       </div>
     </div>

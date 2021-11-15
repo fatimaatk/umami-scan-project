@@ -10,21 +10,12 @@ const MyFavorites = () => {
   });
 
   const addFavorites = (id) => {
-    // if (!isFavorite) {
-    //   const newFavorite = favorites.find((product) => product._id === id);
-    //   if (favorites != []) {
-    //     setFavorites([...favorites, newFavorite]);
-    //     localStorage.setItem(
-    //       'favorites',
-    //       JSON.stringify([...favorites, newFavorite])
-    //     );
-    //   }
-    // } else {
     const newFavorites = favorites.filter((favorite) => favorite._id != id);
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    // }
   };
+
+  const isInFavorites = true;
 
   return (
     <div>
@@ -38,6 +29,7 @@ const MyFavorites = () => {
             image={product.image_front_small_url}
             nutriscoreGrade={product.nutriscore_grade}
             addFavorites={addFavorites}
+            isInFavorites={isInFavorites}
           />
         ))}
       </div>

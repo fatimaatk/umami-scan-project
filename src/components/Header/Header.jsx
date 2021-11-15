@@ -33,17 +33,28 @@ const Header = () => {
           <span className="hamburger-span">&nbsp;</span>
           <span className="hamburger-span">&nbsp;</span>
         </div>
-
         <nav>
-          <ul className="nav">
-            <li className="navlink">
+          <ul>
+            <li>
               <Link to="/">Home</Link>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
-            <li className="navlink">
+            <li>
               <Link to="/my-umami">My Umami</Link>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
-            <li className="navlink">
+            <li>
               <Link to="/contact">Contact</Link>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
           </ul>
         </nav>

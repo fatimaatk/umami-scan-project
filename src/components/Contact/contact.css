@@ -1,7 +1,7 @@
 .contact-form {
-  margin: 3rem auto 3rem auto;
+  margin: 48px auto 48px auto;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url('../../assets/ardoise.jpg');
+  background-image: url('../../assets/board-1848724.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -12,7 +12,7 @@
 }
 h2 {
   color: white;
-  margin-top: 35px;
+  margin-top: 5px;
   text-align: center;
 }
 .form-content {
@@ -21,11 +21,11 @@ h2 {
 }
 input,
 textarea {
-  background-color: white;
+  background-color: rgb(209, 209, 209);
   font-family: monospace, Geneva, Tahoma, sans-serif;
   font-size: 1.1rem;
   border: none;
-  color: black;
+  color: rgb(53, 35, 35);
   margin: 10px;
   padding: 10px;
   width: 100%;
@@ -33,7 +33,7 @@ textarea {
 }
 input::placeholder, 
 textarea::placeholder {
- color: rgb(190, 188, 188);
+ color: rgb(0, 0, 0);
 
 }
 
@@ -44,7 +44,7 @@ textarea::placeholder {
 #not-mail {
   display: none;
   position: absolute;
-  top: 4px;
+  top: 10px;
   color: #ff4d4d;
   right: 0;
   transform-origin: 50% 50%;
@@ -88,7 +88,7 @@ textarea::placeholder {
 .button {
   font-size: 1.3rem;
   margin-top: 15px;
-  color: #cec950;
+  color: #0f0f0f;
   border: none;
   cursor: pointer;
   transition: .2s;

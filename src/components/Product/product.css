@@ -29,7 +29,6 @@ h3 {
     height: auto;
     padding-bottom: 5%;
   }
-
   .imageList {
     margin-top: 3%;
     padding-bottom: 0;
@@ -78,7 +77,6 @@ h3 {
     width: 20%;
     margin-right: 10%;
   }
-
   .ullist {
     margin-top: 0;
     width: auto;
@@ -114,11 +112,9 @@ h3 {
     justify-content: space-around;
     font-size: 20px;
   }
-
   .image {
     width: 20%;
   }
-
   .titlelist {
     font-size: 20px;
   }
@@ -128,11 +124,9 @@ h3 {
   .titlelist {
     font-size: 30px;
   }
-
   .label {
     font-size: 30px;
   }
-
   .productIngredient {
     padding-bottom: 0;
   }
@@ -307,87 +301,70 @@ h3 {
     width: 40px;
     height: 40px;
   }
-
   .saturatedFat.moderate {
     width: 40px;
     height: 40px;
   }
-
   .saturatedFat.high {
     width: 40px;
     height: 40px;
   }
-
   .salt.low {
     width: 40px;
     height: 40px;
   }
-
   .salt.moderate {
     width: 40px;
     height: 40px;
   }
-
   .salt.high {
     width: 40px;
     height: 40px;
   }
-
   .sugars.low {
     width: 40px;
     height: 40px;
   }
-
   .sugars.moderate {
     width: 40px;
     height: 40px;
   }
-
   .sugars.high {
     width: 40px;
     height: 40px;
   }
-
   .nova.nova1 {
     width: 35px;
     height: 60px;
   }
-
   .nova.nova2 {
     width: 35px;
     height: 60px;
   }
-
   .nova.nova3 {
     width: 35px;
     height: 60px;
   }
-
   .nova.nova4 {
     width: 35px;
     height: 60px;
   }
-
   .nutriscore.a {
     width: 110px;
     height: 60px;
   }
-
   .nutriscore.b {
     width: 110px;
     height: 60px;
   }
-
   .nutriscore.c {
     width: 110px;
     height: 60px;
   }
-
   .nutriscore.d {
     width: 110px;
     height: 60px;
   }
-
   .nutriscore.e {
     width: 110px;
     height: 60px;
@@ -427,7 +404,6 @@ h3 {
     padding-top: 8%;
     padding-bottom: 0;
   }
-
   .levelicon {
     width: 20px;
   }

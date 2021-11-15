@@ -108,7 +108,9 @@ const Contact = () => {
           value={phone}
         />
         <div className="email-content">
-          <label id="not-mail">Email non valide</label>
+          <label htmlFor="email" id="not-mail">
+            Email non valide
+          </label>
           <input
             type="mail"
             id="email"

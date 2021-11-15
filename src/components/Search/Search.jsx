@@ -23,7 +23,7 @@ const Search = () => {
   };
 
   const handleFavorites = (id, isFavorite) => {
-    if (isFavorite == false) {
+    if (!isFavorite) {
       const newFavorite = products.find((product) => product._id === id);
       if (favorites != []) {
         setFavorites([...favorites, newFavorite]);
@@ -31,9 +31,6 @@ const Search = () => {
           'favorites',
           JSON.stringify([...favorites, newFavorite])
         );
-      } else {
-        setFavorites(newFavorite);
-        localStorage.setItem('favorites', JSON.stringify(newFavorite));
       }
     } else {
       const newFavorites = favorites.filter((favorite) => favorite._id != id);

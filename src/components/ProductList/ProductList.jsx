@@ -3,9 +3,19 @@ import PropTypes from 'prop-types';
 import ProductCard from '../ProductCard/ProductCard';
 import './productList.css';
 
-function ProductList({ products, handleDelete, handleFavorites, isFavorite }) {
+function ProductList({ products, handleDelete, addFavorites }) {
   return (
     <div className="ProductList">
+      {products == '' ? (
+        <div className="ProductList_accueil">
+          <h3 className="ProductList_h3">Cher Umamiste,</h3>
+          <p className="ProductList_p">
+            bienvenue sur notre application. Votre Umami étant vide pour le
+            moment, n’hésitez pas à scanner des produits ou taper votre code
+            barre pour incrémenter votre panier.
+          </p>
+        </div>
+      ) : null}
       {products.map((product) => (
         <ProductCard
           key={product._id}
@@ -14,8 +24,7 @@ function ProductList({ products, handleDelete, handleFavorites, isFavorite }) {
           image={product.image_front_small_url}
           nutriscoreGrade={product.nutriscore_grade}
           handleDelete={handleDelete}
-          handleFavorites={handleFavorites}
-          isFavorite={isFavorite}
+          addFavorites={addFavorites}
         />
       ))}
     </div>

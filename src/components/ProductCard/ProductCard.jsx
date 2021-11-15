@@ -10,12 +10,28 @@ function ProductCard({
   nutriscoreGrade,
   id,
   handleDelete,
-  handleFavorites,
+  addFavorites,
 }) {
   const divStyle = {
     backgroundImage: 'url(' + image + ')',
   };
+
+  // const [favorites, setFavorites] = React.useState(() => {
+  //   const localFavorites = localStorage.getItem('favorites');
+  //   return localFavorites ? JSON.parse(localFavorites) : [];
+  // });
+
+  //const favorites = localStorage.getItem('favorites');
+
+  // setFavorites(favorites);
+
+  // const checkFavorite = (id) => {
+  //   favorites.find((product) => product._id === id);
+  //   return favorites ? true : false;
+  // };
+
   const [isFavorite, setIsFavorite] = React.useState(false);
+  const myFavorite = React.useCallback(() => setIsFavorite(!isFavorite));
   const handleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -27,12 +43,14 @@ function ProductCard({
             id="favorite"
             className={isFavorite ? 'isFavorite' : 'notFavorite'}
             onClick={() => {
+              myFavorite();
               handleFavorite();
-              handleFavorites(id, isFavorite);
+              addFavorites(id, isFavorite);
             }}
             onKeyDown={() => {
+              myFavorite();
               handleFavorite();
-              handleFavorites(id, isFavorite);
+              addFavorites(id, isFavorite);
             }}
             role="button"
             tabIndex={0}

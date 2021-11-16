@@ -1,0 +1,13 @@
+.MyUmami {
+  text-align: center;
+  padding: 2rem;
+}
+
+.MyUmami-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.MyUmami-links a {
+  padding: 1rem;
+}

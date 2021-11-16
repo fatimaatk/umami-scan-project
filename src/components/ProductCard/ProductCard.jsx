@@ -11,26 +11,20 @@ function ProductCard({
   id,
   handleDelete,
   addFavorites,
+  isInFavorites,
 }) {
   const divStyle = {
     backgroundImage: 'url(' + image + ')',
   };
 
-  // const [favorites, setFavorites] = React.useState(() => {
-  //   const localFavorites = localStorage.getItem('favorites');
-  //   return localFavorites ? JSON.parse(localFavorites) : [];
-  // });
+  const [isFavorite, setIsFavorite] = React.useState();
 
-  //const favorites = localStorage.getItem('favorites');
+  React.useEffect(() => {
+    const localFavorites = localStorage.getItem('favorites');
+    localFavorites && JSON.parse(localFavorites);
+    localFavorites.includes(id) && setIsFavorite(true);
+  }, []);
 
-  // setFavorites(favorites);
-
-  // const checkFavorite = (id) => {
-  //   favorites.find((product) => product._id === id);
-  //   return favorites ? true : false;
-  // };
-
-  const [isFavorite, setIsFavorite] = React.useState(false);
   const handleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -54,15 +48,17 @@ function ProductCard({
           >
             <FaHeart />
           </div>
-          <div
-            className="delete"
-            onClick={() => handleDelete(id)}
-            onKeyDown={() => handleDelete(id)}
-            role="button"
-            tabIndex={0}
-          >
-            <FaRegTimesCircle />
-          </div>
+          {!isInFavorites ? (
+            <div
+              className="delete"
+              onClick={() => handleDelete(id)}
+              onKeyDown={() => handleDelete(id)}
+              role="button"
+              tabIndex={0}
+            >
+              <FaRegTimesCircle />
+            </div>
+          ) : null}
         </div>
         <h2>{productName}</h2>
         <p>

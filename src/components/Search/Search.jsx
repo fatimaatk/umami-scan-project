@@ -21,17 +21,15 @@ const Search = () => {
     window.navigator.vibrate(100);
     setData(e.target.value);
   };
-  
-  const handleFavorites = (id, isFavorite) => {
+
+  const addFavorites = (id, isFavorite) => {
     if (!isFavorite) {
       const newFavorite = products.find((product) => product._id === id);
-      if (favorites != []) {
-        setFavorites([...favorites, newFavorite]);
-        localStorage.setItem(
-          'favorites',
-          JSON.stringify([...favorites, newFavorite])
-        );
-      }
+      setFavorites([...favorites, newFavorite]);
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify([...favorites, newFavorite])
+      );
     } else {
       const newFavorites = favorites.filter((favorite) => favorite._id != id);
       setFavorites(newFavorites);
@@ -50,7 +48,7 @@ const Search = () => {
 
   //3428273980046
   const userAction = async () => {
-    if (data !== '') {
+    if (data) {
       // je vais récuperer un objet via Api
       fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
         // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
@@ -74,7 +72,9 @@ const Search = () => {
   return (
     <div className="mainSearch">
       <div className="searchtext">
-        <p className="textSearch">What do you want to add to your Umami ?</p>
+        <p className="textSearch">
+          Quel produit souhaitez vous ajouter dans votre Umami?
+        </p>
 
         {scan && (
           <BarcodeScannerComponent
@@ -99,7 +99,7 @@ const Search = () => {
               name="input"
               required
               size="100%"
-              placeholder="Product search ..."
+              placeholder="code barre..."
               className="inputSearch"
             />
             <img
@@ -115,13 +115,13 @@ const Search = () => {
             type="button"
             onClick={() => userAction()}
           >
-            <span>Add </span>
+            <span>Ajouter </span>
           </button>
         </div>
       </div>
       <ProductList
         products={products}
-        handleFavorites={handleFavorites}
+        addFavorites={addFavorites}
         handleDelete={handleDelete}
       />
       <button onClick={() => localStorage.clear()}>CLEAR</button>

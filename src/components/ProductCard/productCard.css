@@ -3,14 +3,15 @@
   background-position: center;
   margin: 1rem;
   border-radius: 0.5rem;
+  width: 20rem;
+  border: solid black 1px;
+  box-shadow: grey 10px 10px 10px;
 }
 
 .ProductCard-container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border: solid black 1px;
-  width: 15rem;
 }
 
 .ProductCard-container p {
@@ -72,4 +73,9 @@
 .details a {
   background-color: #000;
   padding: 1rem;
+}
+
+.ProductCard a {
+  text-decoration: none;
+  color: white;
 }

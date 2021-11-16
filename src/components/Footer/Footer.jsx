@@ -45,8 +45,8 @@ const Footer = () => {
       </ul>
       <p>
         <br />
-        Copyright @2021 | Designed by Umami Fr Remote <br /> <br />
-        Project designed for Web Developper training at the WildCodeSchool
+        Copyright @2021 | Réalisé par Umami Fr Remote <br /> <br />
+        Projet conçu pour la formation de développeur Web à la WildCodeSchool.
       </p>
     </footer>
   );

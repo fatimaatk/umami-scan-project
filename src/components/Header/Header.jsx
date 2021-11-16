@@ -36,14 +36,14 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Accueil</Link>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
             </li>
             <li>
-              <Link to="/my-umami">My Umami</Link>
+              <Link to="/my-umami">Mon Umami</Link>
               <span></span>
               <span></span>
               <span></span>

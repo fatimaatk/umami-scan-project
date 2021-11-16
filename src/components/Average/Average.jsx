@@ -1,32 +1,62 @@
 /* eslint-disable no-unreachable */
-import React from 'react';
+import React, { useState } from 'react';
 //import ProductCard from '../ProductCard/ProductCard';
 
-const Average = ({ nutriscoreGrade }) => {
-  let nutriGlobal = ({ nutriscoreGrade }) => {
-    if (nutriscoreGrade === 'a') {
-      nutriGlobal = 3;
-    } else if (nutriscoreGrade === 'b') {
-      nutriGlobal = 3;
-    } else if (nutriscoreGrade === 'c') {
-      nutriGlobal = 3;
-    } else if (nutriscoreGrade === 'd') {
-      nutriGlobal = 3;
-    } else if (nutriscoreGrade === 'e') {
-      nutriGlobal = 3;
-    } else {
-      nutriGlobal = 3;
-    }
-    return console.log(`biz ${nutriscoreGrade}`);
-    nutriGlobal({ nutriGlobal });
-  };
+const Average = ({ products }) => {
+  const [moyenne, setMoyenne] = useState();
 
-  console.log(nutriscoreGrade);
-  return nutriGlobal ? (
-    <div>
-      <p>votre nutriscore moyen est de : {nutriGlobal}</p>
+  React.useEffect(() => {
+    const nutriscores = [];
+    products.map((product) => nutriscores.push(product.nutriscore_grade));
+    console.log('nutri', nutriscores);
+    let sum = 0;
+    for (let i = 0; i < nutriscores.length; i++) {
+      if (nutriscores[i] === 'a') {
+        sum = sum + 1;
+      }
+      if (nutriscores[i] === 'b') {
+        sum = sum + 2;
+      }
+      if (nutriscores[i] === 'c') {
+        sum = sum + 3;
+      }
+      if (nutriscores[i] === 'd') {
+        sum = sum + 4;
+      }
+      if (nutriscores[i] === 'e') {
+        sum = sum + 5;
+      }
+      if (nutriscores[i] === undefined) {
+        nutriscores.length = nutriscores.length - 1;
+      }
+    }
+    let moyenne = Math.round(sum / nutriscores.length);
+    if (moyenne === 1) {
+      moyenne = 'A';
+    }
+    if (moyenne === 2) {
+      moyenne = 'B';
+    }
+    if (moyenne === 3) {
+      moyenne = 'C';
+    }
+    if (moyenne === 4) {
+      moyenne = 'D';
+    }
+    if (moyenne === 5) {
+      moyenne = 'E';
+    }
+
+    setMoyenne(moyenne);
+    // console.log('plop', moyenneString);
+  }, [products]);
+
+  //console.log('test', moyenneString);
+  return (
+    <div className="average">
+      <p>votre nutriscore moyen est de : {moyenne}</p>
     </div>
-  ) : null;
+  );
 };
 
 export default Average;

@@ -68,7 +68,7 @@ function ProductCard({
         <p>
           Nutriscore :{' '}
           <span className={`nustriscore ${nutriscoreGrade}`}>
-            {nutriscoreGrade ? nutriscoreGrade : 'X'}
+            {nutriscoreGrade ? nutriscoreGrade : 'NC'}
           </span>
         </p>
         <div className="details">

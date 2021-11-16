@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import Average from '../Average/Average';
 import './productList.css';
 
-function ProductList({ products, handleDelete, handleFavorites, isFavorite }) {
+function ProductList({ products, handleDelete, addFavorites }) {
   return (
     <div className="ProductList">
       {products == '' ? (
@@ -27,8 +27,7 @@ function ProductList({ products, handleDelete, handleFavorites, isFavorite }) {
             image={product.image_front_small_url}
             nutriscoreGrade={product.nutriscore_grade}
             handleDelete={handleDelete}
-            handleFavorites={handleFavorites}
-            isFavorite={isFavorite}
+            addFavorites={addFavorites}
           />
           <Average nutriscoreGrade={product.nutriscore_grade} />
         </>

@@ -23,8 +23,10 @@ function ProductCard({
     const localFavorites = localStorage.getItem('favorites');
     localFavorites
       ? JSON.parse(localFavorites)
-      : localStorage.setItem('favorites', [{}]);
-    localFavorites.includes(id) && setIsFavorite(true);
+      : localStorage.setItem('favorites', []);
+    if (localFavorites != undefined) {
+      localFavorites.includes(id) && setIsFavorite(true);
+    }
   }, []);
 
   const handleFavorite = () => {
@@ -66,7 +68,7 @@ function ProductCard({
         <p>
           Nutriscore :{' '}
           <span className={`nustriscore ${nutriscoreGrade}`}>
-            {nutriscoreGrade ? nutriscoreGrade : 'X'}
+            {nutriscoreGrade ? nutriscoreGrade : 'NC'}
           </span>
         </p>
         <div className="details">

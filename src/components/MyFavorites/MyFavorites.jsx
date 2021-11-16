@@ -18,9 +18,9 @@ const MyFavorites = () => {
   const isInFavorites = true;
 
   return (
-    <div>
+    <section className="Umami MyFavorites">
       <h1>Mes favoris</h1>
-      <div className="favoritesproducts">
+      <div className="MyFavorites-list">
         {favorites.map((product) => (
           <ProductCard
             key={product._id}
@@ -33,7 +33,7 @@ const MyFavorites = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

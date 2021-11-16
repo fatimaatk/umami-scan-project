@@ -25,13 +25,11 @@ const Search = () => {
   const addFavorites = (id, isFavorite) => {
     if (!isFavorite) {
       const newFavorite = products.find((product) => product._id === id);
-      if (favorites != []) {
-        setFavorites([...favorites, newFavorite]);
-        localStorage.setItem(
-          'favorites',
-          JSON.stringify([...favorites, newFavorite])
-        );
-      }
+      setFavorites([...favorites, newFavorite]);
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify([...favorites, newFavorite])
+      );
     } else {
       const newFavorites = favorites.filter((favorite) => favorite._id != id);
       setFavorites(newFavorites);
@@ -50,7 +48,7 @@ const Search = () => {
 
   //3428273980046
   const userAction = async () => {
-    if (data !== '') {
+    if (data) {
       // je vais récuperer un objet via Api
       fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
         // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)

@@ -21,7 +21,6 @@ const Search = () => {
     window.navigator.vibrate(100);
     setData(e.target.value);
   };
-  
   const handleFavorites = (id, isFavorite) => {
     if (!isFavorite) {
       const newFavorite = products.find((product) => product._id === id);

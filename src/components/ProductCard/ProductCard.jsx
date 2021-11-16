@@ -23,8 +23,10 @@ function ProductCard({
     const localFavorites = localStorage.getItem('favorites');
     localFavorites
       ? JSON.parse(localFavorites)
-      : localStorage.setItem('favorites', [{}]);
-    localFavorites.includes(id) && setIsFavorite(true);
+      : localStorage.setItem('favorites', []);
+    if (localFavorites != undefined) {
+      localFavorites.includes(id) && setIsFavorite(true);
+    }
   }, []);
 
   const handleFavorite = () => {

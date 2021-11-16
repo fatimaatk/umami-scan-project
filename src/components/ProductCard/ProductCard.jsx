@@ -31,7 +31,6 @@ function ProductCard({
   // };
 
   const [isFavorite, setIsFavorite] = React.useState(false);
-  const myFavorite = React.useCallback(() => setIsFavorite(!isFavorite));
   const handleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -43,12 +42,10 @@ function ProductCard({
             id="favorite"
             className={isFavorite ? 'isFavorite' : 'notFavorite'}
             onClick={() => {
-              myFavorite();
               handleFavorite();
               addFavorites(id, isFavorite);
             }}
             onKeyDown={() => {
-              myFavorite();
               handleFavorite();
               addFavorites(id, isFavorite);
             }}

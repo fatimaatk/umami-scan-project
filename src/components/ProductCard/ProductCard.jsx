@@ -21,7 +21,9 @@ function ProductCard({
 
   React.useEffect(() => {
     const localFavorites = localStorage.getItem('favorites');
-    localFavorites && JSON.parse(localFavorites);
+    localFavorites
+      ? JSON.parse(localFavorites)
+      : localStorage.setItem('favorites', [{}]);
     localFavorites.includes(id) && setIsFavorite(true);
   }, []);
 

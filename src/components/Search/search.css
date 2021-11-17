@@ -3,6 +3,7 @@
   background-size: content;
   background-repeat: no-repeat;
   background-position: 40%;
+  min-height: 71vh;
 }
 
 @media screen and (min-width: 800px) {
@@ -11,10 +12,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-  }
-
-  .searchtext {
-    padding-top: 10%;
   }
 }
 
@@ -121,13 +118,15 @@ input.inputSearch {
   width: 18rem;
   height: 2.5rem;
   margin-left: 2%;
-  color: white;
   font-weight: bold;
-  background-color: black;
+  color: #4caf50;
+  border-radius: 10px;
+  border: solid #4caf50 2px;
+  font-weight: normal;
+  background-color: white;
   transition-duration: 0.5s;
   box-shadow: 5px 5px 5px black;
   margin-top: 1rem;
-  border: none;
 }
 
 @media screen and (min-width: 800px) {
@@ -136,9 +135,11 @@ input.inputSearch {
     height: 2rem;
     margin-left: 1rem;
     margin-bottom: 0.3rem;
-    color: white;
+    color: #4caf50;
+    border-radius: 10px;
+    border: solid #4caf50 2px;
     font-weight: normal;
-    background-color: black;
+    background-color: white;
     box-shadow: 5px 5px 5px black;
     transition-duration: 0.5s;
     margin-top: 0;
@@ -158,7 +159,6 @@ input.inputSearch {
 }
 
 .buttonadd span::after {
-  content: '\00bb';
   position: absolute;
   opacity: 0;
   right: -20px;
@@ -168,11 +168,6 @@ input.inputSearch {
 .buttonadd:hover {
   background-color: #4caf50;
   color: white;
-  font-weight: bold;
-}
-
-.buttonadd:hover span {
-  padding-right: 25px;
 }
 
 .buttonadd:hover span::after {

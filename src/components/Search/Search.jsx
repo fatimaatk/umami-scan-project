@@ -68,6 +68,7 @@ const Search = () => {
           } else alert('Produit déjà ajouté');
         } else alert('Inserez un code barre valide');
       })
+
       .catch((error) => error);
   };
 

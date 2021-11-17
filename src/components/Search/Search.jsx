@@ -5,6 +5,7 @@ import './search.css';
 import BarcodeScannerComponent from 'react-qr-barcode-scanner';
 import ProductList from '../ProductList/ProductList';
 import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
+import { IoIosPower } from 'react-icons/io';
 const Search = () => {
   const [products, setProducts] = useState(() => {
     const localProducts = localStorage.getItem('products');
@@ -82,7 +83,14 @@ const Search = () => {
           Une application simple qui vous permettra de connaitre en un clic le
           nutriscore global de votre panier.
         </p>
-
+        <div
+          className={`buttonScan ${scan ? 'buttonScan' : 'buttonScanOff'}`}
+          onClick={() => setScan(false)}
+          role="button"
+          tabIndex={0}
+        >
+          <IoIosPower />
+        </div>
         {scan && (
           <BarcodeScannerComponent
             className="visio"

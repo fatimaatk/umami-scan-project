@@ -25,9 +25,8 @@ function ProductCard({
     localFavorites
       ? JSON.parse(localFavorites)
       : localStorage.setItem('favorites', []);
-    if (localFavorites != undefined) {
+    if (localFavorites != undefined)
       localFavorites.includes(id) && setIsFavorite(true);
-    }
   }, []);
 
   const handleFavorite = () => {

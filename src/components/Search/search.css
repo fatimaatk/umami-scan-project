@@ -13,6 +13,10 @@
     background-repeat: no-repeat;
     background-position: bottom;
   }
+
+  .searchtext {
+    padding-top: 10%;
+  }
 }
 
 /* Correspond à la div globale de search */
@@ -29,6 +33,37 @@
   color: #343434;
   font-size: 20px;
   padding: 0.2rem;
+}
+
+.buttonScan {
+  border: medium none;
+  top: 1rem;
+  right: 1rem;
+  position: absolute;
+  
+  z-index: 2;
+  color: rgb(255, 81, 0);
+  
+  
+}
+
+.noscroll { 
+  overflow: hidden;
+}
+.buttonScanOff {
+  display: none;
+}
+
+video {
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  background-color:black ;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
 .par2 {
@@ -82,35 +117,28 @@ input.inputSearch {
     justify-content: center;
     flex-direction: row;
   }
-
   .searchtext {
     padding-top: 6rem;
   }
-
   .textSearch {
     color: #343434;
     font-size: 32px;
   }
-
   .scandiv {
     width: 50rem;
     justify-content: space-between;
   }
-
   input.inputSearch {
     /* border: none; */
     width: 30rem;
     outline: none;
   }
-
   .logoIconPhoto {
     width: 2.3rem;
     height: 2.3rem;
     margin-right: 1rem;
   }
 }
-
-
 
 /* bouton recherche */
 
@@ -144,7 +172,6 @@ input.inputSearch {
     transition-duration: 0.5s;
     margin-top: 0;
   }
-
   .buttonadd span {
     font-size: 1rem;
   }
@@ -188,12 +215,8 @@ video {
     width: 20%;
     font-size: 20px;
   }
-
   .inputSearch {
     font-size: 20px;
   }
 }
 
-video {
-  z-index: 1;
-}

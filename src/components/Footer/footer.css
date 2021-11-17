@@ -5,11 +5,7 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 0;
-  border-top: black solid 1px;
-  background-image: url('../../assets/backgroundfruits.jpeg');
-  background-position: 0 80%;
-  opacity: 1;
-  color: white;
+  background-color: #4caf4f83;
 }
 
 .social_list {
@@ -24,22 +20,19 @@
 .contactTeam {
   list-style: none;
   line-height: 1;
-  font-size: 20px;
-  
+  font-size: 15px;
 }
+
 .contactTeam:hover {
   list-style: none;
   line-height: 1;
-  font-size: 35px;
-  transition-duration: 0.8s;
+  font-size: 20px;
+  transition-duration: 0.2s;
 }
 
 footer a {
   text-decoration: none;
-  color: white;
-}
-
-.follow {
+  padding: 1rem;
   color: black;
 }
 
@@ -48,18 +41,19 @@ footer a {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding: 0;
-    width: 80%;
-    height: 5vh;
   }
 
   .footer {
     background-size: cover;
-    height: 25vh;
+    height: 20vh;
   }
 
   .contactTeam {
-    width: 20%;
-    border-radius: 30px;
+    padding: 0.5rem;
   }
+}
+
+footer p {
+  color: rgb(69, 92, 39);
+  margin-bottom: 2rem;
 }

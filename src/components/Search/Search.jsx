@@ -76,13 +76,15 @@ const Search = () => {
     <div className="mainSearch">
       <div className="searchtext">
         <p className="textSearch">
-          Quel produit souhaitez vous ajouter dans votre Umami?
+          Quel produit souhaitez vous ajouter à votre Umami?
+        </p>
+        <p className="par2">
+          Une application simple qui vous permettra de connaitre en un clic le
+          nutriscore global de votre panier.
         </p>
 
         {scan && (
           <BarcodeScannerComponent
-            width={400}
-            height={200}
             className="visio"
             onUpdate={(err, result) => {
               if (result) {
@@ -102,9 +104,10 @@ const Search = () => {
               name="input"
               required
               size="100%"
-              placeholder="code barre..."
+              placeholder="Entrer votre code barre..."
               className="inputSearch"
             />
+
             <img
               className="logoIconPhoto"
               src={LogoIconPhoto}
@@ -118,7 +121,7 @@ const Search = () => {
             type="button"
             onClick={() => userAction(data)}
           >
-            <span>Ajouter </span>
+            <span>Ajouter</span>
           </button>
         </div>
       </div>

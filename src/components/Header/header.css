@@ -1,11 +1,6 @@
 header {
-  padding: 2rem;
-  border-bottom: solid 1px;
-  background-image: url("../../assets/backgroundfruits.jpeg");
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  
+  background: white;
+  padding-left: 1rem;
 }
 
 .header-container {
@@ -16,19 +11,15 @@ header {
 }
 
 .logo {
-  animation-duration: 4s;
+  margin-top: 1rem;
+  animation-duration: 2s;
   animation-name: bounce;
   animation-iteration-count: 1;
 }
 
 @keyframes bounce {
-  from {
-    margin-top: 100vh;
-  }
-
-  to {
-    margin-top: 0%;
-  }
+  from { padding-bottom: 50px; }
+  to { padding-bottom: 0; }
 }
 
 nav {
@@ -40,46 +31,37 @@ nav ul {
   flex-direction: column;
   align-items: center;
   list-style: none;
-  padding-top: 10%;
   padding-left: 0;
 }
 
 nav ul li {
-  margin: 0 0 0.5rem 0;
   text-align: center;
-  padding: 0.5rem;
 }
 
 nav ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 nav ul li {
-  --c: goldenrod;
-  color: var(--c);
-  font-size: 16px;
-  border: 0.1em solid var(--c);
+  --c: #4caf50;
+
   border-radius: 0.5em;
-  width: 12em;
-  height: 3em;
+  width: 10rem;
+  height: 2em;
   text-transform: uppercase;
-  font-weight: bold;
-  font-family: sans-serif;
   letter-spacing: 0.1em;
   text-align: center;
-  line-height: 3em;
+  line-height: 2em;
   position: relative;
   overflow: hidden;
   z-index: 1;
   transition: 0.5s;
-  margin: 1em;
+  margin: 0.5em;
 }
 
 nav ul li span {
   position: absolute;
-  width: 25%;
+  width: 100%;
   height: 100%;
   background-color: var(--c);
   transform: translateY(150%);
@@ -130,7 +112,7 @@ nav ul li span:nth-child(4) {
 }
 
 .hamburger-span {
-  background: rgb(255, 255, 255);
+  background: black;
   border-radius: 9px;
   cursor: pointer;
   display: block;
@@ -208,7 +190,8 @@ nav ul li span:nth-child(4) {
     margin-left: 4%;
   }
 }
+
 nav a {
   text-decoration: none;
-  color: white;
+  color: black;
 }

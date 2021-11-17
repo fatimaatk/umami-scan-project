@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo_umami.svg';
+import Logo from '../../assets/umami_codebarre.png';
 import './header.css';
 
 const Header = () => {
@@ -17,8 +17,8 @@ const Header = () => {
             className="logo"
             src={Logo}
             alt="logo Umami"
-            width="150"
-            height="41"
+            width="180"
+            height="50"
           />
         </Link>
         <div

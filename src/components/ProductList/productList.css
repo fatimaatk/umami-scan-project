@@ -1,21 +1,21 @@
 .ProductList {
-  background-color: #f6faed;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
 }
-.ProductList_accueil{
+
+.ProductList_accueil {
   border: solid 1px black;
   text-align: center;
 }
-.ProductList_h3{
+
+.ProductList_h3 {
   font-size: 2em;
 }
-.ProductList_p{
+
+.ProductList_p {
   font-size: 1.5em;
   margin-bottom: 32px;
-
 }
 
 @media screen AND (min-width: 700px) {

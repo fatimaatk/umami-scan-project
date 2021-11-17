@@ -17,7 +17,6 @@ const Search = () => {
     return localFavorites ? JSON.parse(localFavorites) : [];
   });
   const handleSearchValue = (e) => {
-    //setData([...data, e.result.text]);
     window.navigator.vibrate(100);
     setData(e.target.value);
   };
@@ -69,7 +68,8 @@ const Search = () => {
           } else alert('Produit déjà ajouté');
         } else alert('Inserez un code barre valide');
       })
-      .catch((error) => console.log(error));
+
+      .catch((error) => error);
   };
 
   return (

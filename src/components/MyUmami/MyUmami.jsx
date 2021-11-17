@@ -1,13 +1,37 @@
-import { Link } from 'react-router-dom';
 import './myUmami.css';
+import React from 'react';
+import ProductCard from '../ProductCard/ProductCard';
+import { useState } from 'react';
 
 const MyUmami = () => {
+  const [favorites, setFavorites] = useState(() => {
+    const localFavorites = localStorage.getItem('favorites');
+    return localFavorites ? JSON.parse(localFavorites) : [];
+  });
+
+  const addFavorites = (id) => {
+    const newFavorites = favorites.filter((favorite) => favorite._id != id);
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  };
+
+  const isInFavorites = true;
+
   return (
-    <section className="MyUmami">
-      <h1>My Umami</h1>
-      <div className="MyUmami-links">
-        <Link to="/my-favorites">Mes favoris</Link>
-        <Link to="#">Mon historique</Link>
+    <section className="Umami MyFavorites">
+      <h1>Mes favoris</h1>
+      <div className="MyFavorites-list">
+        {favorites.map((product) => (
+          <ProductCard
+            key={product._id}
+            id={product._id}
+            productName={product.product_name}
+            image={product.image_front_small_url}
+            nutriscoreGrade={product.nutriscore_grade}
+            addFavorites={addFavorites}
+            isInFavorites={isInFavorites}
+          />
+        ))}
       </div>
     </section>
   );

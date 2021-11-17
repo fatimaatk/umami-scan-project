@@ -1,19 +1,24 @@
-.contact-form {
-  margin: 48px auto 48px auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url('../../assets/board-1848724.jpg');
+.contact {
+  background-image: url('../../assets/testbackground2.jpeg');
+  background-size: content;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: 40%;
+  display: flex;
+  justify-content: center;
 }
+
+.contact-form {
+  margin-top: 1.5rem;
+}
+
 @media screen and (min-width:600px) {
   .contact-form{
     width: 50%;
   }
 }
-h2 {
-  color: white;
-  margin-top: 5px;
+.titlecontact {
   text-align: center;
+  margin-top: 5px;
 }
 .form-content {
   margin: 0 auto;
@@ -21,19 +26,18 @@ h2 {
 }
 input,
 textarea {
-  background-color: rgb(209, 209, 209);
-  font-family: monospace, Geneva, Tahoma, sans-serif;
+  background-color: white;
   font-size: 1.1rem;
   border: none;
-  color: rgb(53, 35, 35);
+  color:#343434;
   margin: 10px;
   padding: 10px;
   width: 100%;
   border-radius: 10px;
 }
-input::placeholder, 
+input::placeholder,
 textarea::placeholder {
- color: rgb(0, 0, 0);
+ color: #343434;
 
 }
 
@@ -88,15 +92,17 @@ textarea::placeholder {
 .button {
   font-size: 1.3rem;
   margin-top: 15px;
-  color: #0f0f0f;
-  border: none;
-  cursor: pointer;
-  transition: .2s;
+  color: #4caf50;
+  border-radius: 10px;
+  border : solid #4caf50 2px;
+  font-weight: normal;
+  background-color: white;
+  box-shadow: 5px 5px 5px black;
 }
 .button:hover {
   letter-spacing: 2px;
-  background-color: lightgray;
-  color: #524f00;
+  background-color: #4caf50;
+  color: white;
 }
 .error::placeholder {
   color: #ff4d4d;

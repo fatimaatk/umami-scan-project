@@ -5,7 +5,10 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 0;
-  background-color: #4caf4f83;
+  background-color: #a3d6a4;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .social_list {

@@ -1,5 +1,6 @@
 /* eslint-disable no-unreachable */
 import React, { useState } from 'react';
+import './average.css';
 //import ProductCard from '../ProductCard/ProductCard';
 
 const Average = ({ products }) => {
@@ -8,7 +9,6 @@ const Average = ({ products }) => {
   React.useEffect(() => {
     const nutriscores = [];
     products.map((product) => nutriscores.push(product.nutriscore_grade));
-    console.log('nutri', nutriscores);
     let sum = 0;
     for (let i = 0; i < nutriscores.length; i++) {
       if (nutriscores[i] === 'a') {
@@ -53,8 +53,8 @@ const Average = ({ products }) => {
 
   //console.log('test', moyenneString);
   return (
-    <div className="average">
-      <p>votre nutriscore moyen est de : {moyenne}</p>
+    <div className="averagediv">
+      <div className="average">{moyenne}</div>
     </div>
   );
 };

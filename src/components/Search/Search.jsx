@@ -46,16 +46,19 @@ const Search = () => {
     }
   };
 
-  //3428273980046
-  const userAction = async () => {
-    if (data) {
-      // je vais récuperer un objet via Api
-      fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
-        // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
-        .then((res) => res.json())
-        // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
-        .then((datas) => {
-          // prend dans datas uniquement la marque et assigne le à setProduct
+  const handleErrors = (res) => {
+    if (!res.ok) {
+      throw Error(res.statusText);
+    }
+    return res;
+  };
+
+  const userAction = async (data) => {
+    fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
+      .then(handleErrors)
+      .then((res) => res.json())
+      .then((datas) => {
+        if (datas.product) {
           const productAlreadyThere = products.find((e) => e._id === data);
           if (!productAlreadyThere) {
             setProducts([...products, datas.product]);
@@ -63,10 +66,10 @@ const Search = () => {
               'products',
               JSON.stringify([...products, datas.product])
             );
-          } else alert('Product already added');
-        });
-      //.catch(() => console.log('Error'));
-    } else alert('Insert a barre code');
+          } else alert('Produit déjà ajouté');
+        } else alert('Inserez un code barre valide');
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -85,7 +88,7 @@ const Search = () => {
             className="visio"
             onUpdate={(err, result) => {
               if (result) {
-                setData(result.text);
+                userAction(result.text);
                 setScan(false);
               }
             }}
@@ -116,7 +119,7 @@ const Search = () => {
             className="buttonadd"
             label="text"
             type="button"
-            onClick={() => userAction()}
+            onClick={() => userAction(data)}
           >
             <span>Ajouter</span>
           </button>
@@ -127,7 +130,6 @@ const Search = () => {
         addFavorites={addFavorites}
         handleDelete={handleDelete}
       />
-      <button onClick={() => localStorage.clear()}>CLEAR</button>
     </div>
   );
 };

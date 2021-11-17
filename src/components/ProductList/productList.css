@@ -15,11 +15,5 @@
 
 .ProductList_p {
   font-size: 1.5em;
-  margin-bottom: 32px;
-}
 
-@media screen AND (min-width: 700px) {
-  .ProductList {
-    margin: 4rem auto;
-  }
 }

@@ -2,4 +2,6 @@
 
 .App {
   font-family: 'Dosis', sans-serif;
+  height: 100vh;
+  color: #343434;
 }

@@ -4,83 +4,132 @@ import { useParams } from 'react-router-dom';
 import lowicon from '../../assets/lowicon.png';
 import moderateicon from '../../assets/moderateicon.png';
 import highicon from '../../assets/highicon.png';
+import { FaHeart } from 'react-icons/fa';
 
 const Product = () => {
   const params = useParams();
-  const [productName, setProductName] = useState();
-  const [productBrand, setProductBrand] = useState();
-  const [image, setImage] = useState();
-  const [ingredients, setIngredients] = useState();
-  //const [additives, setAdditives] = useState();
-  //const [fat, setFat] = useState();
-  const [salt, setSalt] = useState();
-  const [saturatedFat, setSaturatedFat] = useState();
-  const [sugars, setSugars] = useState();
-  const [nova, setNova] = useState();
-  const [nutriscoreGrade, setNutriscoreGrade] = useState();
+  const [product, setProduct] = useState([]);
+  const [nutrilevels, setNutrilevels] = useState([]);
+  const [isFavorite, setIsFavorite] = useState();
+
+  const [favorites, setFavorites] = useState(() => {
+    const localFavorites = localStorage.getItem('favorites');
+    return localFavorites ? JSON.parse(localFavorites) : [];
+  });
+
+  const addFavorites = (isFavorite) => {
+    if (!isFavorite) {
+      setFavorites([...favorites, product]);
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify([...favorites, product])
+      );
+    } else {
+      const newFavorites = favorites.filter(
+        (favorite) => favorite._id != product._id
+      );
+      setFavorites(newFavorites);
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    }
+  };
+
+  const handleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   useEffect(() => {
     fetch(`https://world.openfoodfacts.org/api/v0/product/${params.id}.json`)
-      // 1e promesse : si j'ai un résultat alors affiche le moi sous forme de .json (propre à fetch)
       .then((res) => res.json())
-      // 2e promesse : lorsque tu m'as converti le resultat en json, alors :
       .then((datas) => {
-        setImage([datas.product.image_front_small_url]);
-        setProductName([datas.product.generic_name]);
-        setProductBrand([datas.product.brands]);
-        setIngredients([datas.product.ingredients_text]);
-        //setAdditives([datas.product.additives_n]);
-        //setFat([datas.products.nutrient_levels.fat]);
-        setSalt([datas.product.nutrient_levels.salt]);
-        setSaturatedFat([datas.product.nutrient_levels['saturated-fat']]);
-        setSugars([datas.product.nutrient_levels.sugars]);
-        setNova([datas.product['nova_group']]);
-        setNutriscoreGrade([datas.product.nutriscore_grade]);
+        setProduct(datas.product);
+        setNutrilevels(datas.product.nutrient_levels);
       })
       .catch(() => console.log('Error'));
+    const localFavorites = localStorage.getItem('favorites');
+    localFavorites
+      ? JSON.parse(localFavorites)
+      : localStorage.setItem('favorites', []);
+    if (localFavorites != undefined) {
+      localFavorites.includes(params.id) && setIsFavorite(true);
+    }
   }, []);
 
-  // <li>Graisse : {fat? fat :"0"}</li>
   return (
-    <div className="product">
+    <section className="Umami product">
       <div className="productIngredient">
         <div className="title">
-          <h1>{productBrand ? productBrand : 'null'}</h1>
-          <h3>{productName ? productName : 'null'} </h3>
+          {product.brands && <h1>{product.brands}</h1>}
+          <div
+            id="favorite"
+            className={isFavorite ? 'isFavorite' : 'notFavorite'}
+            onClick={() => {
+              handleFavorite();
+              addFavorites(isFavorite);
+            }}
+            onKeyDown={() => {
+              handleFavorite();
+              addFavorites(isFavorite);
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <FaHeart />
+          </div>
         </div>
-        <p className="ingredients">{ingredients ? ingredients : 'null'} </p>
+        {product.generic_name && <h3>{product.generic_name} </h3>}
+        {product.ingredients_text && (
+          <p className="ingredients">{product.ingredients_text} </p>
+        )}
 
-        <h3 className="valeursnutri">
-          <br />
-          Valeurs nutritionnelles{' '}
-        </h3>
+        <h3 className="valeursnutri">Valeurs nutritionnelles</h3>
         <div className="imageList">
-          <img className="image" src={image ? image : 'null'} alt="product" />
+          {product.image_front_small_url && (
+            <img
+              className="image"
+              src={product.image_front_small_url}
+              alt="product"
+            />
+          )}
 
           <ul className="ullist">
-            {saturatedFat && (
+            {nutrilevels['saturated-fat'] && (
               <li className="titlelist">
-                <span className={`saturatedFat ${saturatedFat}`}></span> Graisse
-                saturée
+                <span
+                  className={`saturatedFat ${nutrilevels['saturated-fat']}`}
+                ></span>
+                Graisse saturée
               </li>
             )}
-            <li className="titlelist">
-              <span className={`salt ${salt}`}></span> Teneur en sel
-            </li>
-            <li className="titlelist">
-              <span className={`sugars ${sugars}`}></span> Teneur en sucre
-            </li>
+            {nutrilevels.salt && (
+              <li className="titlelist">
+                <span className={`salt ${nutrilevels.salt}`}></span>
+                Teneur en sel
+              </li>
+            )}
+            {nutrilevels.sugars && (
+              <li className="titlelist">
+                <span className={`sugars ${nutrilevels.sugars}`}></span>
+                Teneur en sucre
+              </li>
+            )}
           </ul>
         </div>
         <div className="labeldiv">
           <ul className="ullabel">
-            <li className="label">
-              <span className={`nova nova${nova}`}></span> Nova score
-            </li>
-            <li className="label">
-              <span className={`nutriscore ${nutriscoreGrade}`}></span> Nutri
-              score
-            </li>
+            {product['nova_group'] && (
+              <li className="label">
+                <span className={`nova nova${product['nova_group']}`}></span>{' '}
+                Nova score
+              </li>
+            )}
+            {product.nutriscore_grade && (
+              <li className="label">
+                <span
+                  className={`nutriscore ${product.nutriscore_grade}`}
+                ></span>
+                Nutri score
+              </li>
+            )}
           </ul>
         </div>
         <p className="textlevel">
@@ -98,7 +147,7 @@ const Product = () => {
           fonction du degré de transformation qu&apos;ils ont subi.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

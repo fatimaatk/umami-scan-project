@@ -56,8 +56,11 @@ const Average = ({ products }) => {
 
   //console.log('test', moyenneString);
   return (
-    <div className="averagediv">
-      <div className="average">{moyenne}</div>
+    <div className="averageglobal">
+      <div className="averagediv">
+        <h3 className="scorepar">SCORE </h3>
+        <div className={`average ${moyenne}`}></div>
+      </div>
     </div>
   );
 };

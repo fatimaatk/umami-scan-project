@@ -98,7 +98,7 @@ textarea::placeholder {
   border : solid #4caf50 2px;
   font-weight: normal;
   background-color: #4caf50;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: rgb(0 0 0 / 26%) 5px 5px 10px;
 }
 .button:hover {
   background-color: white;

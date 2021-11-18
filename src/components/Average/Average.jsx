@@ -9,28 +9,29 @@ const Average = ({ products }) => {
   React.useEffect(() => {
     const nutriscores = [];
     products.map((product) => nutriscores.push(product.nutriscore_grade));
+    const newArray = nutriscores.filter(
+      (nutriscore) => nutriscore !== undefined
+    );
+    console.log(newArray);
     let sum = 0;
-    for (let i = 0; i < nutriscores.length; i++) {
-      if (nutriscores[i] === 'a') {
+    for (let i = 0; i < newArray.length; i++) {
+      if (newArray[i] === 'a') {
         sum = sum + 1;
       }
-      if (nutriscores[i] === 'b') {
+      if (newArray[i] === 'b') {
         sum = sum + 2;
       }
-      if (nutriscores[i] === 'c') {
+      if (newArray[i] === 'c') {
         sum = sum + 3;
       }
-      if (nutriscores[i] === 'd') {
+      if (newArray[i] === 'd') {
         sum = sum + 4;
       }
-      if (nutriscores[i] === 'e') {
+      if (newArray[i] === 'e') {
         sum = sum + 5;
       }
-      if (nutriscores[i] === undefined) {
-        nutriscores.length = nutriscores.length - 1;
-      }
     }
-    let moyenne = Math.round(sum / nutriscores.length);
+    let moyenne = Math.round(sum / newArray.length);
     if (moyenne === 0) {
       moyenne = null;
     }

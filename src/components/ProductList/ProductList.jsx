@@ -3,19 +3,61 @@ import PropTypes from 'prop-types';
 import ProductCard from '../ProductCard/ProductCard';
 import Average from '../Average/Average';
 import './productList.css';
-
+import telephoneUmami from '../../assets/telephoneUmami.png';
+import favorisProd from '../../assets/favorisimage.jpeg';
+import pcUmami from '../../assets/pcumami.png';
+import scantel from '../../assets/telephonescan.png';
 function ProductList({ products, handleDelete, addFavorites }) {
   return (
     <>
       <div className="ProductList">
         {products == '' ? (
           <>
-            <h3 className="ProductList_h3">Cher Umamiste,</h3>
-            <p className="ProductList_p">
-              bienvenue sur notre application. Votre Umami étant vide pour le
-              moment, n’hésitez pas à scanner des produits ou taper votre code
-              barre pour incrémenter votre panier.
-            </p>
+            <div className="accueil">
+              <div className="accueilGlobal">
+                <div className="accueilCard">
+                  <img
+                    src={telephoneUmami}
+                    alt="Umami Desktop"
+                    className="imgAccueil"
+                  />
+                  <hr className="ligne"></hr>
+                  <p className="accueilTitre">
+                    Une application disponible sur mobile
+                  </p>
+                </div>
+                <div className="accueilCard">
+                  <img
+                    src={scantel}
+                    alt="Umami Desktop"
+                    className="imgAccueil4"
+                  />
+                  <hr className="ligne"></hr>
+                  <p className="accueilTitre">Scannez vos produits</p>
+                </div>
+
+                <div className="accueilCard">
+                  <img
+                    src={pcUmami}
+                    alt="Umami Desktop"
+                    className="imgAccueil2"
+                  />
+                  <hr className="ligne"></hr>
+                  <p className="accueilTitre">
+                    Calculez votre Umami en un clic
+                  </p>
+                </div>
+                <div className="accueilCard">
+                  <img
+                    src={favorisProd}
+                    alt="Umami Desktop"
+                    className="imgAccueil4"
+                  />
+                  <hr className="ligne"></hr>
+                  <p className="accueilTitre">Vos favoris à portée de main</p>
+                </div>
+              </div>
+            </div>
           </>
         ) : (
           <>

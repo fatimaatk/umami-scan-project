@@ -94,6 +94,7 @@ video {
 
 input.inputSearch {
   /* border: none; */
+  margin-left : 1rem;
   width: 13rem;
   outline: none;
   border-radius: 14px;
@@ -102,6 +103,8 @@ input.inputSearch {
   font-size: 0.8rem;
   font-style: italic;
   color: #343434;
+  height: 100%;
+  margin-bottom: 0;
 }
 
 .logoIconPhoto {

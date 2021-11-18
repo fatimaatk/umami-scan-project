@@ -65,7 +65,9 @@ function ProductCard({
       </div>
       <div className="ProductCard-container">
         <div className="ProductCard-image">
-          <div className="ProductCard-imagebackground" style={divStyle}></div>
+          <Link to={`/product/${id}`}>
+            <div className="ProductCard-imagebackground" style={divStyle}></div>
+          </Link>
         </div>
         <h3 className="productName">{productName}</h3>
         <hr

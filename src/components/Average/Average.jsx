@@ -31,6 +31,9 @@ const Average = ({ products }) => {
       }
     }
     let moyenne = Math.round(sum / nutriscores.length);
+    if (moyenne === 0) {
+      moyenne = null;
+    }
     if (moyenne === 1) {
       moyenne = 'A';
     }

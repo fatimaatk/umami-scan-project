@@ -38,7 +38,7 @@ const Search = () => {
   };
 
   const handleDelete = (id) => {
-    const del = window.confirm('Are you sure?');
+    const del = window.confirm('Etes-vous sûr ?');
     if (del) {
       const newProductList = products.filter((product) => product._id !== id);
       setProducts(newProductList);
@@ -67,7 +67,8 @@ const Search = () => {
               JSON.stringify([...products, datas.product])
             );
           } else alert('Produit déjà ajouté');
-        } else alert('Inserez un code barre valide');
+        } else alert('Insérez un code barre valide');
+        setData('');
       })
 
       .catch((error) => error);
@@ -77,7 +78,7 @@ const Search = () => {
     <div className="mainSearch">
       <div className="searchtext">
         <p className="textSearch">
-          Quel produit souhaitez vous ajouter à votre Umami?
+          Quel produit souhaitez-vous ajouter à votre Umami ?
         </p>
         <p className="par2">
           Une application simple qui vous permettra de connaitre en un clic le

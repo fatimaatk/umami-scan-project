@@ -33,6 +33,7 @@
 }
 
 .isFavorite {
+  cursor: pointer;
   width: 30px;
   height: 30px;
   color: red;
@@ -40,6 +41,7 @@
 }
 
 .notFavorite {
+  cursor: pointer;
   width: 30px;
   height: 30px;
   color: #4caf50;
@@ -47,11 +49,12 @@
   align-self: flex-start;
 }
 
-.notFavorite :hover{
+.notFavorite:hover{
   color: red;
 }
 
 .delete {
+  cursor: pointer;
   width: 30px;
   height: 30px;
   color: grey;
@@ -110,11 +113,14 @@
   width: 100%;
 }
 
+.ProductCard-imagebackground:hover{
+  box-shadow: 5px 5px 10px  grey;
+}
+
 .ProductCard-imagebackground {
   width: 6rem;
   height: 9rem;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px 2px grey;
   background-position: 60%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -125,6 +131,7 @@
   text-transform: lowercase;
   color: #343434;
   font-style: normal;
+  min-height: 3rem ;
 }
 
 .productName::first-letter {

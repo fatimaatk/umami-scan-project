@@ -1,6 +1,6 @@
 .mainSearch {
   background-image: url('../../assets/testbackground2.jpeg');
-  background-size: content;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 40%;
   min-height: 71vh;
@@ -44,7 +44,7 @@
   font-weight: normal;
   background-color: white;
   transition-duration: 0.5s;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: rgba(0, 0, 0, 0.26) 5px 5px 10px;
   margin-top: 1rem;
 }
 
@@ -182,7 +182,6 @@ input.inputSearch {
     border: solid #4caf50 2px;
     font-weight: normal;
     background-color: white;
-    box-shadow: 5px 5px 5px black;
     transition-duration: 0.5s;
     margin-top: 0;
   }

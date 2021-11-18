@@ -31,6 +31,9 @@ const Average = ({ products }) => {
       }
     }
     let moyenne = Math.round(sum / nutriscores.length);
+    if (moyenne === 0) {
+      moyenne = null;
+    }
     if (moyenne === 1) {
       moyenne = 'A';
     }
@@ -53,8 +56,11 @@ const Average = ({ products }) => {
 
   //console.log('test', moyenneString);
   return (
-    <div className="averagediv">
-      <div className="average">{moyenne}</div>
+    <div className="averageglobal">
+      <div className="averagediv">
+        <h3 className="scorepar">SCORE </h3>
+        <div className={`average ${moyenne}`}></div>
+      </div>
     </div>
   );
 };

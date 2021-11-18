@@ -25,7 +25,7 @@ const Footer = () => {
         <li className="contactTeam">
           {' '}
           <a
-            href="https://www.linkedin.com/in/julienroth/?originalSubdomain=fr"
+            href="https://www.linkedin.com/in/julienroth"
             target="_blank"
             rel="noreferrer"
           >

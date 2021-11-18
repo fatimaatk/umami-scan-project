@@ -96,7 +96,7 @@ const Contact = () => {
             id="name"
             name="name"
             onChange={(e) => setName(e.target.value)}
-            placeholder="nom *"
+            placeholder="Nom *"
             value={name}
             autoComplete="off"
           />
@@ -105,7 +105,7 @@ const Contact = () => {
             id="phone"
             name="phone"
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="téléphone"
+            placeholder="Téléphone"
             value={phone}
           />
           <div className="email-content">
@@ -117,7 +117,7 @@ const Contact = () => {
               id="email"
               name="email"
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="email *"
+              placeholder="Email *"
               value={email}
               autoComplete="off"
             />
@@ -126,7 +126,7 @@ const Contact = () => {
             id="message"
             name="message"
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="message *"
+            placeholder="Message *"
             value={message}
           />
           <input

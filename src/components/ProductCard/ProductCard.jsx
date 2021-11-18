@@ -68,7 +68,12 @@ function ProductCard({
           <div className="ProductCard-imagebackground" style={divStyle}></div>
         </div>
         <h3 className="productName">{productName}</h3>
-
+        <hr
+          style={{
+            color: '#d6e7ed',
+            width: 200,
+          }}
+        />
         <div className="details">
           <span className={`nutriscore ${nutriscoreGrade}`}></span>
           <Link to={`/product/${id}`}>Details produit</Link>

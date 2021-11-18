@@ -1,13 +1,11 @@
-.MyUmami {
+.MyFavorites {
+  background-image: url('../../assets/testbackground.jpeg');
   text-align: center;
   padding: 2rem;
 }
 
-.MyUmami-links {
+.MyFavorites-list {
   display: flex;
-  flex-direction: column;
-}
-
-.MyUmami-links a {
-  padding: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

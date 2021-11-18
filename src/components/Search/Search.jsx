@@ -89,7 +89,7 @@ const Search = () => {
           role="button"
           tabIndex={0}
         >
-          <IoIosPower />
+          <IoIosPower size={32} />
         </div>
         {scan && (
           <BarcodeScannerComponent

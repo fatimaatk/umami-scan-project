@@ -77,7 +77,9 @@ function ProductCard({
           }}
         />
         <div className="details">
-          <span className={`nutriscore ${nutriscoreGrade}`}></span>
+          {nutriscoreGrade && (
+            <span className={`nutriscore ${nutriscoreGrade}`}></span>
+          )}
           <Link to={`/product/${id}`}>Details produit</Link>
         </div>
       </div>

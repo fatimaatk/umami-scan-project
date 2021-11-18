@@ -9,10 +9,12 @@ const Average = ({ products }) => {
   React.useEffect(() => {
     const nutriscores = [];
     products.map((product) => nutriscores.push(product.nutriscore_grade));
+
     const newArray = nutriscores.filter(
       (nutriscore) => nutriscore !== undefined
     );
     console.log(newArray);
+
     let sum = 0;
     for (let i = 0; i < newArray.length; i++) {
       if (newArray[i] === 'a') {

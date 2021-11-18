@@ -5,7 +5,6 @@ import Search from './components/Search/Search';
 import './app.css';
 import Product from './components/Product/Product';
 import MyUmami from './components/MyUmami/MyUmami';
-import MyFavorites from './components/MyFavorites/MyFavorites';
 import Contact from './components/Contact/Contact';
 
 function App() {
@@ -23,9 +22,6 @@ function App() {
             </Route>
             <Route path="/my-umami">
               <MyUmami />
-            </Route>
-            <Route exact path="/my-favorites">
-              <MyFavorites />
             </Route>
             <Route path="/contact">
               <Contact />

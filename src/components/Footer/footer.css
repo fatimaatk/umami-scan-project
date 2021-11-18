@@ -1,6 +1,5 @@
 .footer {
   display: flex;
-  justify-content: center;
   text-align: center;
   align-items: center;
   flex-direction: column;
@@ -21,6 +20,7 @@
 }
 
 .contactTeam {
+  margin-top: 1rem;
   list-style: none;
   line-height: 1;
   font-size: 15px;
@@ -35,7 +35,6 @@
 
 footer a {
   text-decoration: none;
-  padding: 1rem;
   color: black;
 }
 
@@ -48,7 +47,6 @@ footer a {
 
   .footer {
     background-size: cover;
-    height: 20vh;
   }
 
   .contactTeam {

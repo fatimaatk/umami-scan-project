@@ -38,14 +38,15 @@
   height: 2.5rem;
   margin-left: 2%;
   font-weight: bold;
-  color: #4caf50;
+  color: white;
   border-radius: 10px;
   border: solid #4caf50 2px;
   font-weight: normal;
-  background-color: white;
+  background-color: #4caf50;
   transition-duration: 0.5s;
   box-shadow: rgba(0, 0, 0, 0.26) 5px 5px 10px;
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 .buttonScanOff {
@@ -100,7 +101,7 @@ input.inputSearch {
   background-color: white;
   font-size: 0.8rem;
   font-style: italic;
-  color: rgba(128, 128, 128, 0.185);
+  color: #343434;
 }
 
 .logoIconPhoto {
@@ -124,8 +125,8 @@ input.inputSearch {
 }
 
 .buttonadd:hover {
-  background-color: #4caf50;
-  color: white;
+  background-color: white;
+  color: #4caf50;
 }
 
 .buttonadd:hover span::after {
@@ -177,12 +178,6 @@ input.inputSearch {
     height: 2rem;
     margin-left: 1rem;
     margin-bottom: 0.3rem;
-    color: #4caf50;
-    border-radius: 10px;
-    border: solid #4caf50 2px;
-    font-weight: normal;
-    background-color: white;
-    transition-duration: 0.5s;
     margin-top: 0;
   }
 

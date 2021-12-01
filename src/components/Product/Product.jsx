@@ -44,7 +44,7 @@ const Product = () => {
         setProduct(datas.product);
         setNutrilevels(datas.product.nutrient_levels);
       })
-      .catch(() => console.log('Error'));
+      .catch(() => 'Error');
     const localFavorites = localStorage.getItem('favorites');
     localFavorites
       ? JSON.parse(localFavorites)

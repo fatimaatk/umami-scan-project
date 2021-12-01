@@ -13,7 +13,6 @@ const Average = ({ products }) => {
     const newArray = nutriscores.filter(
       (nutriscore) => nutriscore !== undefined
     );
-    console.log(newArray);
 
     let sum = 0;
     for (let i = 0; i < newArray.length; i++) {
@@ -54,10 +53,8 @@ const Average = ({ products }) => {
     }
 
     setMoyenne(moyenne);
-    // console.log('plop', moyenneString);
   }, [products]);
 
-  //console.log('test', moyenneString);
   return (
     <div className="averageglobal">
       <div className="averagediv">

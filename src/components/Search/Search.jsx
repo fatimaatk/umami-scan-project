@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import './search.css';
-import BarcodeScannerComponent from 'react-qr-barcode-scanner';
+// import BarcodeScannerComponent from 'react-qr-barcode-scanner';
 import ProductList from '../ProductList/ProductList';
 import LogoIconPhoto from '../../assets/icone_appareil_photo.svg';
 import { IoIosPower } from 'react-icons/io';
@@ -92,7 +90,7 @@ const Search = () => {
         >
           <IoIosPower size={32} />
         </div>
-        {scan && (
+        {/* {scan && (
           <BarcodeScannerComponent
             className="visio"
             onUpdate={(err, result) => {
@@ -102,7 +100,7 @@ const Search = () => {
               }
             }}
           />
-        )}
+        )} */}
         <div className="search">
           <div className="scandiv">
             <input
